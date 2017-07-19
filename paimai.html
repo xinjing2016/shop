@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拍卖</title>
+<link href="css/base.css" type="text/css" rel="stylesheet">
+<link href="css/index.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script src="js/hmJs.js"></script>
+
+
+<script>
+$(document).ready(function(e) {
+    $('.topbtn').click(function(){
+		/*var speed=200;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;*/
+
+		if(scroll=="off") return;
+		$("html,body").animate({scrollTop: 0}, 500);
+		});
+
+	//搜索
+	$('.ch_pro li').click(function(){
+		$(this).addClass('chLi').siblings().removeClass('chLi');
+		});
+});
+</script>
+</head>
+
+<body>
+<div class="header">
+<!--topnav start-->
+<div class="topnav">
+	<div class="row">
+        <ul class="lf">
+            <a href="denglu.html">登录</a><span class="line">|</span><a href="zhuce.html">免费注册</a>
+        </ul>
+        <ul class="rf">
+            <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="my_index.html">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="gouwuche.html">购物车 <i class="iconcar"></i></a><sapn class="line">|</sapn>
+            <a>全国热线:<span class="color03">400-6653-666</span></a>
+        </ul>
+        <div class="clr"></div>
+    </div>
+</div>
+<!--topnav end-->
+
+<!--search start-->
+<div class="row">
+	<div class=" lf logo"><img src="images/gaoliuxutop.png"></div>
+	<div class="lf search">
+
+        <div class="ch_ul">
+        	<input class="search_txt" type="text" value="" placeholder="请输入关键词">
+            <a href="goods_list.html"><input class="search_sub" type="submit" value="搜 索" ></a>
+            <div class="clr"></div>
+        </div>
+        <ul class="ch_ul ch_classify">
+        	<li class="chft">沙发</li><li class="line">|</li>
+            <li>餐桌</li><li class="line">|</li>
+            <li>扇形椅</li><li class="line">|</li>
+            <li>屏风</li><li class="line">|</li>
+            <div class="clr"></div>
+        </ul>
+        <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+</div>
+<!--search enf-->
+<!--topad start-->
+<div class="navigation">
+<div class="row">
+	<div class="lf all_classify">
+    	全部商品分类
+        <div class="slider_bar">
+        	<li>
+            	<h4>卧房</h4><a href="#">穿衣镜</a><a href="#">衣帽架</a><a href="#">贵妃椅</a>
+            </li>
+            <li>
+            	<h4>客厅</h4><a href="#">电视柜</a><a href="#">沙发</a><a href="#">屏风</a>
+            </li>
+            <li>
+            	<h4>书房</h4><a href="#">书桌</a><a href="#">扇形椅</a><a href="#">画案</a>
+            </li>
+            <li>
+            	<h4>餐厅</h4><a href="#">西餐桌</a><a href="#">餐边柜</a><a href="#">酒柜</a>
+            </li>
+            <li>
+            	<h4>工艺品</h4><a href="#">茶具</a><a href="#">摆件</a><a href="#">名片夹</a>
+            </li>
+            <li>
+            	<h4>玉石翡翠</h4><a href="#">玉石</a><a href="#">翡翠</a>
+            </li>
+            <li>
+            	<h4>创意礼品</h4><a href="#">设计产品</a><a href="#">饰品</a>
+            </li>
+            <li>
+            	<h4>书法篆刻</h4><a href="#">楷书</a><a href="#">行书</a><a href="#">古籍文献</a>
+            </li>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <nav class="rf nav">
+    	<a href="index.html">首页</a>
+        <a href="tuangou.html">团购</a>
+        <a href="temai.html">特卖</a>
+        <a class="hover" href="paimai.html">拍卖</a>
+        <a href="miaosha.html">秒杀</a>         <a href="shangchen.html">在线商城</a>         <a href="store.html">体验馆</a>
+
+        <div class="clr"></div>
+    </nav>
+    <div class="clr"></div>
+</div>
+</div>
+<!--topad start-->
+</div>
+
+<!--index content start-->
+<!--<div class="row tg_list">-->
+    <!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+    	<!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+        <!--</div>-->
+    <!--</a>-->
+	<!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+    	<!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+        <!--</div>-->
+    <!--</a>-->
+    <!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+    	<!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+        <!--</div>-->
+    <!--</a>-->
+    <!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+    	<!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+        <!--</div>-->
+    <!--</a>-->
+    <!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+    	<!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+        <!--</div>-->
+    <!--</a>-->
+	<!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+    	<!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+        <!--</div>-->
+    <!--</a>-->
+    <!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+    	<!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+        <!--</div>-->
+    <!--</a>-->
+  <!--<a href="paimai_detail.html">-->
+    	<!--<div class="list-pic">-->
+        	<!--<img class="maximg" src="images/pic_5.jpg">-->
+            <!--<p class="times">剩余时间1天2时3分23秒</p>-->
+        <!--</div>-->
+  <!--<div class="list-word">-->
+        	<!--<h2 class="title">时尚手提包</h2>-->
+            <!--<p class="price"><i class="color05">起拍价：￥</i>110 <input class="btnClass" type="button" value="拍下来" /></p>-->
+      <!--</div>-->
+  <!--</a>-->
+    <!--<div class="clr"></div>-->
+<!--</div>-->
+
+
+
+
+<div class="home-main page-main" >
+    <div class="container">
+        <!--<div class="box-ht">-->
+        <!--<h2 class="tittle">团购</h2>-->
+        <!--<div class="more">-->
+        <!--<a href="#"><span>查看全部 </span><i class="icon">></i></a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="main">
+            <a href="paimai_detail.html">
+            <div class="part row-first">
+                <span class="top" style="background:rgb(255,172,19)">享8折</span>
+                <img src="images/pic_2.jpg" alt="" />
+                <div class="black">水果</div>
+                <div class="gray">&nbsp </div>
+                <div class="red">￥149元</div>
+            </div></a>
+            <div class="part">
+                <span class="top" style="background:rgb(255,172,19)">享8折</span>
+                <img src="images/pic_2.jpg" alt="" />
+                <div class="black">水果</div>
+                <div class="gray">&nbsp </div>
+                <div class="red">￥149元</div>
+            </div>
+            <div class="part">
+                <span class="top">新品</span>
+                <img src="images/pic_3.jpg" alt="" />
+                <div class="black">有机食品</div>
+                <div class="gray">新鲜水果下单，第二天采摘发货 </div>
+                <div class="red">￥2999元</div>
+            </div>
+            <div class="part">
+                <span class="top">新品</span>
+                <img src="images/pic_4.jpg" alt="" />
+                <div class="black">有机食品</div>
+                <div class="gray">新鲜直达</div>
+                <div class="red">￥299元</div>
+            </div>
+            <div class="part">
+                <span class="top" style="background:white"></span>
+                <img src="images/pic_5.jpg" alt="" />
+                <div class="black">有机食品</div>
+                <div class="gray">厂家直销  产地直供</div>
+                <div class="red">￥199元</div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="part row-first">
+                <span class="top" style="background:rgb(255,172,19)">享8折</span>
+                <img src="images/pic_2.jpg" alt="" />
+                <div class="black">水果</div>
+                <div class="gray">&nbsp </div>
+                <div class="red">￥149元</div>
+            </div>
+            <div class="part">
+                <span class="top" style="background:rgb(255,172,19)">享8折</span>
+                <img src="images/pic_2.jpg" alt="" />
+                <div class="black">水果</div>
+                <div class="gray">&nbsp </div>
+                <div class="red">￥149元</div>
+            </div>
+            <div class="part">
+                <span class="top">新品</span>
+                <img src="images/pic_3.jpg" alt="" />
+                <div class="black">有机食品</div>
+                <div class="gray">新鲜水果下单，第二天采摘发货 </div>
+                <div class="red">￥2999元</div>
+            </div>
+            <div class="part">
+                <span class="top">新品</span>
+                <img src="images/pic_4.jpg" alt="" />
+                <div class="black">有机食品</div>
+                <div class="gray">新鲜直达</div>
+                <div class="red">￥299元</div>
+            </div>
+            <div class="part">
+                <span class="top" style="background:white"></span>
+                <img src="images/pic_5.jpg" alt="" />
+                <div class="black">有机食品</div>
+                <div class="gray">厂家直销  产地直供</div>
+                <div class="red">￥199元</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+    <div class="page">
+    	<a class="firs-page">首页</a>
+        <a>1</a><a>2</a><a>3</a><a>4</a><a>5</a>
+        <a class="firs-page">尾页</a>
+        <div class="clr"></div>
+    </div>
+
+<!--index content end-->
+
+<!--index service start-->
+<div class="nav-footer">     <ul class="row">         <li>             <div></div>             <strong>                 <a href="">正品保障</a>             </strong>             <p>正品保障，提供发票</p>         </li>         <li>             <div></div>             <strong>                 <a href="">急速物流</a>             </strong>             <p>急速物流，急速送达</p>         </li>         <li>             <div></div>             <strong>                 <a href="">无忧售后</a>             </strong>             <p>七天无理由退货</p>         </li>         <li>             <div></div>             <strong>                 <a href="">特设服务</a>             </strong>             <p>私人定制套餐</p>         </li>         <li>             <div></div>             <strong>                 <a href="">帮助中心</a>             </strong>             <p>您的购物中心</p>         </li>     </ul> </div>  <div class="help">     <div class="row">         <ul class="footer2">             <li  class="tel">                 <p class="working"><img src="images/icon14.png"> 工作日 9:00~18:00</p>                 <p class="tels">400-6653-666</p>             </li>             <li>                 <h4>新手指南</h4><a href="zhuce.html">注册新用户</a><a href="#">家具订购流程</a><a href="#">支付方式</a><a href="#">了解产品工艺</a>             </li>             <li>                 <h4>购物保障</h4><a href="#">正品保证</a><a href="#">注册协议</a><a href="#">隐私保护</a><a href="#">免责申明</a><a href="#">商品保障</a>             </li>             <li>                 <h4>配送安装</h4><a href="#">配送安装</a><a href="#">收货指南</a><a href="#">包装说明</a>             </li>             <li>                 <h4>售后服务</h4><a href="#">30天退换货说明</a><a href="#">退款说明</a><a href="#">维修补件说明</a><a href="#">家具保养说明</a><a href="#">假一赔三</a>             </li>             <li class="code">                 <h4>微信公众号</h4>                 <p><img src="images/gaoliuxuerweima.jpg"></p>             </li>         </ul>          <div class="clr"></div>     </div> </div>
+
+<!--footer start-->
+<div class="footer">
+	<div class="row">
+    	&copy;  2016 广州鼎瀛计算机科技有限公司
+    </div>
+</div>
+<!--footer end-->
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>

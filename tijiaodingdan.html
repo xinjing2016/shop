@@ -1,0 +1,1270 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>团购</title>
+<link href="css/base.css" type="text/css" rel="stylesheet">
+<link href="css/index.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="css/dingdan.css" />
+<link rel="stylesheet" href="css/from.css"  />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+
+<script src="js/hmJs.js"></script>
+
+
+<script>
+$(document).ready(function(e) {
+    $('.topbtn').click(function(){
+		/*var speed=200;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;*/
+
+		if(scroll=="off") return;
+		$("html,body").animate({scrollTop: 0}, 500);
+		});
+
+	//搜索
+	$('.ch_pro li').click(function(){
+		$(this).addClass('chLi').siblings().removeClass('chLi');
+		});
+		
+	(function(){
+		$('.showAllAddr').click(function(){
+			$('.moreAddr').css({'display':'block'});
+			$(this).hide();
+			$('.addAddr').css({'visibility': 'visible'});
+			//alert(0);
+		});
+		//alert($('.addr').length);
+		$('.addr').click(function(){
+			$('.addr').removeClass('addr-cur')
+			$(this).addClass('addr-cur');
+			$('.addr').removeClass('addr-set');
+			$(this).addClass('addr-set');
+			
+			$('.addr').find('.addr-toolbar').hide();
+			$(this).find('.addr-toolbar').show();
+			
+		});
+		$('.addr-toolbar a').click(function(){
+			$('.shadow').show();
+		});
+		$('.tc-popup-hide').click(function(){
+			$('.shadow').hide();
+		});
+		
+		var $simpleprice = parseFloat( $('.simple-price').text());
+		var $selectprice = parseFloat( $('.select-price').text());
+		var total = $simpleprice;
+		
+		var $value = $('.quantity-inner .amount').val();
+		$('.quantity-inner .right').click(function(){
+			if($value>1){
+				
+				$('.quantity-inner .left').addClass('grey');
+			}else{
+				$('.quantity-inner .left').removeClass('grey');
+			}
+			$value++;
+			$('.quantity-inner .amount').val($value);
+			total+=$simpleprice;
+			
+			$('.simple-price').text(total.toFixed(2));
+			$('.J_ShopTotal').text((total+$selectprice).toFixed(2));
+			$('.realPay-price').text((total+$selectprice).toFixed(2));
+		});
+		$('.quantity-inner .left').click(function(){
+			if($value>1){
+				$value--;
+				total-=$simpleprice;
+				$('.quantity-inner .left').addClass('grey');
+			}else{
+				$value=1;
+				$('.quantity-inner .left').removeClass('grey');
+				
+			}
+			$('.quantity-inner .amount').val($value);
+			$('.simple-price').text(total.toFixed(2));
+			$('.J_ShopTotal').text((total+$selectprice).toFixed(2));
+			$('.realPay-price').text((total+$selectprice).toFixed(2));
+			$(this).addClass('grey');
+		});
+	})();
+});
+</script>
+</head>
+
+<body>
+<div class="header">
+<!--topnav start-->
+<div class="topnav">
+	<div class="row">
+        <ul class="lf">
+            <a href="denglu.html">登录</a><span class="line">|</span><a href="zhuce.html">免费注册</a>
+        </ul>
+        <ul class="rf">
+            <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="my_index.html">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="gouwuche.html">购物车 <i class="iconcar"></i></a><sapn class="line">|</sapn>
+            <a>全国热线:<span class="color03">400-6653-666</span></a>
+        </ul>
+        <div class="clr"></div>
+    </div>
+</div>
+<!--topnav end-->
+
+<!--search start-->
+<div class="row">
+	<div class=" lf logo"><img src="images/gaoliuxutop.png"></div>
+	<div class="lf search">
+
+        <div class="ch_ul">
+        	<input class="search_txt" type="text" value="" placeholder="请输入关键词">
+            <a href="goods_list.html"><input class="search_sub" type="submit" value="搜 索" ></a>
+            <div class="clr"></div>
+        </div>
+        <ul class="ch_ul ch_classify">
+        	<li class="chft">沙发</li><li class="line">|</li>
+            <li>餐桌</li><li class="line">|</li>
+            <li>扇形椅</li><li class="line">|</li>
+            <li>屏风</li><li class="line">|</li>
+            <div class="clr"></div>
+        </ul>
+        <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+</div>
+<!--search enf-->
+
+</div>
+
+
+<!--index content start-->
+<div class="home-main page-main" >
+    <div class="container">
+       <div class="wrap1">
+       	
+       	<!--收货地址 开始-->
+       <div class="order-address addr-much" id="address_1" > 
+        <h2  >选择收货地址</h2>
+        <div class="list" > 
+         <div class="addr suggest-address addr-cur addr-def" >
+          <div class="inner" >
+           <div class="addr-hd" title="广东 广州 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >广州</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span > 收）</span>
+           </div>
+           <div class="addr-bd" title="天河棠下 棠安路119号 棠韵大厦 2楼 216室" >
+            <span class="dist" >天河</span>
+            <span class="town" >棠下</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >棠安路119号 棠韵大厦 2楼 216室</span>
+            <span class="phone" style="display:inline;" >17620151200</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         <div class="addr suggest-address">
+          <div class="inner" >
+           <div class="addr-hd" title="广东 中山 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >中山</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span> 收）</span>
+           </div>
+           <div class="addr-bd" title="黄圃 马安村东路四巷三号" >
+            <span class="dist" ></span>
+            <span class="town" >黄圃</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >马安村东路四巷三号</span>
+            <span class="phone" style="display:inline;" >18344091813</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+           <span ></span>
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         <div class="addr suggest-address">
+          <div class="inner" >
+           <div class="addr-hd" title="广东 中山 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >中山</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span> 收）</span>
+           </div>
+           <div class="addr-bd" title="黄圃 马安村东路四巷三号" >
+            <span class="dist" ></span>
+            <span class="town" >黄圃</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >马安村东路四巷三号</span>
+            <span class="phone" style="display:inline;" >18344091813</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+           <span ></span>
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         <div class="addr suggest-address">
+          <div class="inner" >
+           <div class="addr-hd" title="广东 中山 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >中山</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span> 收）</span>
+           </div>
+           <div class="addr-bd" title="黄圃 马安村东路四巷三号" >
+            <span class="dist" ></span>
+            <span class="town" >黄圃</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >马安村东路四巷三号</span>
+            <span class="phone" style="display:inline;" >18344091813</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+           <span ></span>
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         
+        </div>
+        
+        <div class="moreAddr"  >
+         <div class="addr suggest-address">
+          <div class="inner" >
+           <div class="addr-hd" title="广东 中山 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >中山</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span> 收）</span>
+           </div>
+           <div class="addr-bd" title="黄圃 马安村东路四巷三号" >
+            <span class="dist" ></span>
+            <span class="town" >黄圃</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >马安村东路四巷三号</span>
+            <span class="phone" style="display:inline;" >18344091813</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+           <span ></span>
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         <div class="addr suggest-address">
+          <div class="inner" >
+           <div class="addr-hd" title="广东 中山 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >中山</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span> 收）</span>
+           </div>
+           <div class="addr-bd" title="黄圃 马安村东路四巷三号" >
+            <span class="dist" ></span>
+            <span class="town" >黄圃</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >马安村东路四巷三号</span>
+            <span class="phone" style="display:inline;" >18344091813</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+           <span ></span>
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         <div class="addr suggest-address">
+          <div class="inner" >
+           <div class="addr-hd" title="广东 中山 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >中山</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span> 收）</span>
+           </div>
+           <div class="addr-bd" title="黄圃 马安村东路四巷三号" >
+            <span class="dist" ></span>
+            <span class="town" >黄圃</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >马安村东路四巷三号</span>
+            <span class="phone" style="display:inline;" >18344091813</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+           <span ></span>
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         <div class="addr suggest-address">
+          <div class="inner" >
+           <div class="addr-hd" title="广东 中山 (郭新境收)" >
+            <span class="prov" >广东</span>
+            <span class="city" >中山</span>
+            <span >（</span>
+            <span class="name" >郭新境</span>
+            <span> 收）</span>
+           </div>
+           <div class="addr-bd" title="黄圃 马安村东路四巷三号" >
+            <span class="dist" ></span>
+            <span class="town" >黄圃</span>
+            <span class="addr4tip" ></span>
+            <span class="street" >马安村东路四巷三号</span>
+            <span class="phone" style="display:inline;" >18344091813</span>
+            <span class="last" >&nbsp;</span>
+           </div>
+           <div class="addr-toolbar" >
+            <a title="修改地址" class="modify" data-id="7286976133" >修改</a>
+           </div>
+          
+           <span ></span>
+          </div>
+          <div class="curMarker" ></div>
+          <div class="setDefault" title="设置当前地址为默认" >
+           设为默认
+          </div>
+          <div class="defaultTip" >
+           默认地址
+          </div>
+          <div class="floater" ></div>
+          <div class="option" ></div>
+         </div>
+         
+        </div>
+        <div class="control" >
+         <a class="manageAddr" href="my_address.html" >管理收货地址</a>
+         <a class="showAllAddr" >显示全部地址</a>
+         <input class="addAddr" type="button" value="使用新地址"  />
+        </div>
+       </div>       
+       <!--收货地址结束 -->
+       
+       <!-- 地址描述 开始-->
+       <div class="order-orderDesc" id="orderDesc_0" >
+        <h2 class="buy-th-title" >确认订单信息</h2>
+        <div class="buy-th buy-th-column-6" >
+         <div class="buy-td td-0" >
+          店铺宝贝
+         </div>
+         <div class="buy-td td-1" >
+          商品属性
+         </div>
+         <div class="buy-td td-2" >
+          单价
+         </div>
+         <div class="buy-td td-3" >
+          数量
+         </div>
+         <div class="buy-td td-4" >
+          优惠方式
+         </div>
+         <div class="buy-td td-5" >
+          小计
+         </div>
+        </div>
+       </div>    
+       <!-- 地址描述 结束-->
+      
+       <!-- 订单开始 -->
+       <div id="order" class="order-order"  >
+        <div class="order-orderInfo"  >
+         
+         <span class="shop-name" >店铺:&nbsp;</span>
+         <a class="shop-url" href="" target="_blank" >metersbonwe霓尚专卖</a>
+         
+        </div>
+        <div class="order-item order-item-column-4" >
+         <div class="order-itemInfo"  >
+          <div class="info-detail info-cell">
+           <div class="info-cell" >
+            <a class="info-img" href="" target="_blank" >
+            	<img class="info-img" src="images/TB2EjeRcpXXXXbUXXXXXXXXXXXX_!!2452498434.jpg_100x100q90.jpg"  /></a>
+           </div>
+           <div class="info-cell info-msg" >
+            <a href="" class="info-title" target="_blank" >[秒]美特斯邦威新款女装运动感宽松牛仔短裤254748</a>
+            <div class="info-icon-list" >
+             <div >
+              <a class="icon-main" title="消费者保障服务，卖家承诺7天退换" href="" target="_blank" ><img src="images/789456.png"  /></a>
+              <a class="icon-main" title="消费者保障服务，卖家承诺如实描述" href="" target="_blank" ><img src="images/789456.png" /></a>
+              <a class="icon-main" title="支持信用卡支付" target="_blank" ><img src="images/789456.png"  /></a>
+             </div>
+            </div>
+           </div>
+          </div>
+          <div class="info-sku info-cell">
+           <p ><span class="hd" ><span >颜色分类</span><span >：</span></span><span class="bd" >中蓝组</span></p>
+           <p ><span class="hd"><span >尺寸</span><span >：</span></span><span class="bd">155/62A</span></p>
+          </div>
+          <div class="info-price info-cell">
+           169.00
+          </div>
+         </div>
+         <div class="order-quantity" id="quantity_50f851b16e15a7c12511fa909f6eedf0" >
+          <div class="quantity-inner" >
+           <span class="operate left grey" >-</span>
+           <input class="amount" value="1" pattern=""  />
+           <span class="operate right" >+</span>
+          </div>
+          <span ></span>
+          <span ></span>
+         </div>
+         <div class="order-promotion item-promotion" id="promotion_50f851b16e15a7c12511fa909f6eedf0" >
+          <div class="item-promotion-selecter" >
+           <span >省132:品牌钜惠</span>
+           <span class="widget-tips-box" >
+            <div class="wtip-msg-box" >
+             <div class="wtip-arrow-icon" ></div>
+             <ins class="wtip-msg-icon" >
+              
+             </ins>
+             <div class="wtip-msg" >
+              <ul>
+               <li>品牌钜惠：省132.00元</li>
+              </ul>
+             </div>
+            </div></span>
+           <div class="item-promotion-gift" ></div>
+          </div>
+         </div>
+         <div class="order-itemPay"  >
+          <span class="simple-price" >37.30</span>
+         </div>
+         <div class="seperator" data-reactid=".0.$confirmOrder_1.$order_45c2018d8533483efd9ec1f2673c2f85.$item_50f851b16e15a7c12511fa909f6eedf0.$5"></div>
+        </div>
+        <div  class="order-orderExt"  >
+         <div id="" class="order-extUser"  >
+          <div class="order-memo" >
+           <label class="memo-name" for="memo_45c2018d8533483efd9ec1f2673c2f85_1" >给卖家留言：</label>
+           <div class="memo-hint">
+            <a class="hint-title" >重要提醒</a>
+            <div class="mui-msg mui-msg-normal hint-content" >
+             <ins class="mui-msg-icon mui-msg-icon-tip" >
+              
+             </ins>
+             <div class="mui-msg-content" >
+              此处所填内容仅限对商家的温馨提醒，若您需改变订单内容或另有特殊需求，请您务必通过旺旺与商家确认一致。否则，该填写内容将视为无效。
+             </div>
+             <ins class="mui-msg-arrow mui-msg-arrow-top" ></ins>
+            </div>
+           </div>
+           <div class="memo-detail" >
+            <textarea class="text-area-input memo-input" placeholder="选填:对本次交易的说明(建议填写已和卖家协商一致的内容)" id="memo_45c2018d8533483efd9ec1f2673c2f85_1" ></textarea>
+            <div ></div>
+           </div>
+          </div>
+         </div>
+         <div  class="order-extInfo" data="[object Object]" >
+          <div class="order-deliveryMethod" id="deliveryMethod_45c2018d8533483efd9ec1f2673c2f85">
+           <div >
+            <div class="delivery-title" >
+             运送方式:
+            </div>
+            <div class="delivery-select" >
+             <div >
+              <div class="select-item" >
+               <div class="select-info" >
+                <div class="delivery-box" >
+                 <div >
+                  <label for="normalDelivery" >普通配送</label>
+                  <span >快递￥12.00</span>
+                  <span></span>
+                 </div>
+                </div>
+               </div>
+               <div class="select-price" >
+                12.00
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          
+         </div>
+        </div>
+        <div class="orderPay" >
+         <span >店铺合计</span>
+         <span >(含运费)</span>
+         <span class="price g_price" ><span >￥</span><em class="style-middle-bold-red J_ShopTotal" >49.00</em></span>
+        </div>
+       </div>
+       
+       <!-- 订单结束-->
+       <div class="order-payInfo" id="payInfo_1" >
+        <div class="payInfo-wrapper" >
+         <div class="payInfo-shadow" >
+          <div class="order-realPay" id="realPay_1" >
+           <div >
+            <span class="realPay-title" >实付款：</span>
+            <span class="order-price" >￥</span>
+            <span class="realPay-price" >49.00</span>
+           </div>
+          </div>
+          <div class="order-confirmAddr" id="confirmAddr_1" >
+           <div class="confirmAddr-addr" title="天河棠下 棠安路119号 棠韵大厦 2楼 216室" >
+            <span class="confirmAddr-title" >寄送至：</span>
+            <span class="confirmAddr-addr-bd" ><span class="prov">广东</span><span class="city" >广州</span>
+            <span class="dist" >天河</span>
+            <span class="town" >棠下</span>
+            <span class="street" data-street="棠安路119号 棠韵大厦 2楼 216室" >棠安路119号 棠韵大厦 2楼 216室</span></span>
+           </div>
+           <div class="confirmAddr-addr-user" >
+            <span class="confirmAddr-title" >收货人：</span>
+            <span class="confirmAddr-addr-bd" ><span >郭新境</span><span>17620151200</span></span>
+           </div>
+          </div>
+          <div ></div>
+          <div class="order-confirmAddr"></div>
+         </div>
+        </div>
+       </div>
+       <div class="order-submitOrder" id="submitOrder_1" >
+        <div class="wrapper" >
+         <a role="button" title="提交订单" class="go-btn" >提交订单</a>
+        </div>
+       </div>
+       
+       </div>
+       
+    </div>
+
+</div>
+
+
+
+
+    
+
+<!--index content end-->
+
+
+<!--index service start-->
+<div class="nav-footer">     <ul class="row">         <li>             <div></div>             <strong>                 <a href="">正品保障</a>             </strong>             <p>正品保障，提供发票</p>         </li>         <li>             <div></div>             <strong>                 <a href="">急速物流</a>             </strong>             <p>急速物流，急速送达</p>         </li>         <li>             <div></div>             <strong>                 <a href="">无忧售后</a>             </strong>             <p>七天无理由退货</p>         </li>         <li>             <div></div>             <strong>                 <a href="">特设服务</a>             </strong>             <p>私人定制套餐</p>         </li>         <li>             <div></div>             <strong>                 <a href="">帮助中心</a>             </strong>             <p>您的购物中心</p>         </li>     </ul> </div>  <div class="help">     <div class="row">         <ul class="footer2">             <li  class="tel">                 <p class="working"><img src="images/icon14.png"> 工作日 9:00~18:00</p>                 <p class="tels">400-6653-666</p>             </li>             <li>                 <h4>新手指南</h4><a href="zhuce.html">注册新用户</a><a href="#">家具订购流程</a><a href="#">支付方式</a><a href="#">了解产品工艺</a>             </li>             <li>                 <h4>购物保障</h4><a href="#">正品保证</a><a href="#">注册协议</a><a href="#">隐私保护</a><a href="#">免责申明</a><a href="#">商品保障</a>             </li>             <li>                 <h4>配送安装</h4><a href="#">配送安装</a><a href="#">收货指南</a><a href="#">包装说明</a>             </li>             <li>                 <h4>售后服务</h4><a href="#">30天退换货说明</a><a href="#">退款说明</a><a href="#">维修补件说明</a><a href="#">家具保养说明</a><a href="#">假一赔三</a>             </li>             <li class="code">                 <h4>微信公众号</h4>                 <p><img src="images/gaoliuxuerweima.jpg"></p>             </li>         </ul>          <div class="clr"></div>     </div> </div>
+
+<!--footer start-->
+<div class="footer">
+	<div class="row">
+    	&copy;  2016 广州鼎瀛计算机科技有限公司
+    </div>
+</div>
+<!--footer end-->
+
+<!--弹窗开始 -->
+<div class="shadow">
+	<div class="tc-popup add-addr" style="display: block; top: 50px; left: 286px;">
+   <div class="tc-popup-header" style="display: block;">
+    修改地址
+   </div>
+   <div class="tc-popup-content">
+    <!-- ifram start-->
+    
+<title>收货地址</title>
+	
+
+<div id="content">
+	<div class="main-wrap">
+		
+<div class="global-msg msg  hide  " id="J_MsgGlobal">
+	<i></i>
+	<div class="msg-cnt"></div>
+</div>
+<div class="form-box" id="J_FormBox">
+	<div id="mapContainer"></div>
+	
+			<div class="item item-title ">
+			<span class="item-label tsl" data-phase-id="d_p_addNewDeliverAddress" id="J_DeliverTitle">新增收货地址　</span><span class="tsl" data-phase-id="d_p_addNewDeliverAddressNotice">电话号码、手机号选填一项, 其余均为必填项</span>
+					</div>
+		<form id="J_FormDeliver" action="" method="post">
+		<input type="hidden" name="action" value="DeliverAddressMgr">
+		<input type="hidden" name="event_submit_do_save" value="anything">
+			<input type="hidden" name="from" value="tmall">
+		<input type="hidden" name="isFrame" value="true">
+		<input type="hidden" name="token" value="">
+		<input type="hidden" name="lang" value="zh-S" id="J_lang"> 
+		<input name="_tb_token_" type="hidden" value="iOM873qANpq">
+		<input type="hidden" name="id" id="J_iId" value="7286976133">
+			<input type="hidden" name="x" id="J_lat" value="23.132086">
+			<input type="hidden" name="y" id="J_lng" value="113.375984">
+		<input type="hidden" name="reurl" value="//buy.tmall.com/order/addressProxy.htm">
+
+		<div class="item item-devision" id="J_ItemDivision">
+			<span class="item-label tsl" data-phase-id="d_p_location">所在地区 <i>*</i></span>
+
+			<div id="J_CitySelect" class="ks-clear clearfix">
+				<input type="hidden" name="country" class="J_iCountry" value="1">
+				<input type="hidden" name="prov" class="J_iProv" value="440000">
+				<input type="hidden" name="provExt" class="J_iProvExt" value="">
+				<input type="hidden" name="city" class="J_iCity" value="440100">
+				<input type="hidden" name="area" class="J_iArea" value="440106">
+				<input type="hidden" name="town" class="J_iTown" value="440106011">
+				<div id="ks-component85" class="bf-select bf-select bf-menu-button bf-button sSelect" tabindex="0" role="button" title="" aria-describedby="" aria-expanded="false" aria-haspopup="true" style="user-select: none;"><div id="ks-content-ks-component85" class="bf-select-content bf-select-content bf-menu-button-content bf-button-content"><a href="javascript:;">中国大陆</a></div>
+<div class="bf-select-dropdown bf-select-dropdown bf-menu-button-dropdown bf-button-dropdown">
+    <div class="bf-select-dropdown-inner bf-select-dropdown-inner bf-menu-button-dropdown-inner bf-button-dropdown-inner">
+    </div>
+</div></div>
+																												<div class="bf-select bf-cn-select lSelect select-node J_Modify J_CnCity">
+															<div id="city-title" class="city-title has-city-title">广东 <span style="color:#cfcfcf">/</span> 广州 <span style="color:#cfcfcf">/</span> 天河 <span style="color:#cfcfcf">/</span> 棠下街道</div>
+														<div class="bf-menu-button-dropdown"></div>
+						<div id="ks-component7241" class="ks-overlay ks-overlay-hidden" style="width: 300px; left: -1px; top: 27px;">
+
+<div id="ks-content-ks-component7241" class="ks-overlay-content"><div class="city-select-warp"><div class="city-select-tab"><a class="current" attr-cont="city-province">省份</a><a class="" attr-cont="city-city">城市</a><a class="" attr-cont="city-district">县区</a><a class="last" attr-cont="city-street">街道</a></div><div class="city-select-content"><div class="city-select city-province"><dl class="fn-clear"><dt>A-G</dt><dd><a title="安徽" attr-id="340000" href="javascript:;">安徽</a><a title="北京" attr-id="110000" href="javascript:;">北京</a><a title="重庆" attr-id="500000" href="javascript:;">重庆</a><a title="福建" attr-id="350000" href="javascript:;">福建</a><a title="甘肃" attr-id="620000" href="javascript:;">甘肃</a><a title="广东" attr-id="440000" href="javascript:;" class="current">广东</a><a title="广西" attr-id="450000" href="javascript:;">广西</a><a title="贵州" attr-id="520000" href="javascript:;">贵州</a></dd></dl><dl class="fn-clear"><dt>H-K</dt><dd><a title="海南" attr-id="460000" href="javascript:;">海南</a><a title="河北" attr-id="130000" href="javascript:;">河北</a><a title="黑龙江" attr-id="230000" href="javascript:;">黑龙江</a><a title="河南" attr-id="410000" href="javascript:;">河南</a><a title="湖北" attr-id="420000" href="javascript:;">湖北</a><a title="湖南" attr-id="430000" href="javascript:;">湖南</a><a title="江苏" attr-id="320000" href="javascript:;">江苏</a><a title="江西" attr-id="360000" href="javascript:;">江西</a><a title="吉林" attr-id="220000" href="javascript:;">吉林</a></dd></dl><dl class="fn-clear"><dt>L-S</dt><dd><a title="辽宁" attr-id="210000" href="javascript:;">辽宁</a><a title="内蒙古" attr-id="150000" href="javascript:;">内蒙古</a><a title="宁夏" attr-id="640000" href="javascript:;">宁夏</a><a title="青海" attr-id="630000" href="javascript:;">青海</a><a title="山东" attr-id="370000" href="javascript:;">山东</a><a title="上海" attr-id="310000" href="javascript:;">上海</a><a title="山西" attr-id="140000" href="javascript:;">山西</a><a title="陕西" attr-id="610000" href="javascript:;">陕西</a><a title="四川" attr-id="510000" href="javascript:;">四川</a></dd></dl><dl class="fn-clear"><dt>T-Z</dt><dd><a title="天津" attr-id="120000" href="javascript:;">天津</a><a title="新疆" attr-id="650000" href="javascript:;">新疆</a><a title="西藏" attr-id="540000" href="javascript:;">西藏</a><a title="云南" attr-id="530000" href="javascript:;">云南</a><a title="浙江" attr-id="330000" href="javascript:;">浙江</a></dd></dl></div><div class="city-select city-city" style="display: none;"><dl class="fn-clear city-select-city"><dd><a title="广州" attr-id="440100" href="javascript:;" class="current">广州</a><a title="韶关" attr-id="440200" href="javascript:;">韶关</a><a title="深圳" attr-id="440300" href="javascript:;">深圳</a><a title="珠海" attr-id="440400" href="javascript:;">珠海</a><a title="汕头" attr-id="440500" href="javascript:;">汕头</a><a title="佛山" attr-id="440600" href="javascript:;">佛山</a><a title="江门" attr-id="440700" href="javascript:;">江门</a><a title="湛江" attr-id="440800" href="javascript:;">湛江</a><a title="茂名" attr-id="440900" href="javascript:;">茂名</a><a title="肇庆" attr-id="441200" href="javascript:;">肇庆</a><a title="惠州" attr-id="441300" href="javascript:;">惠州</a><a title="梅州" attr-id="441400" href="javascript:;">梅州</a><a title="汕尾" attr-id="441500" href="javascript:;">汕尾</a><a title="河源" attr-id="441600" href="javascript:;">河源</a><a title="阳江" attr-id="441700" href="javascript:;">阳江</a><a title="清远" attr-id="441800" href="javascript:;">清远</a><a title="东莞" attr-id="441900" href="javascript:;">东莞</a><a title="中山" attr-id="442000" href="javascript:;">中山</a><a title="潮州" attr-id="445100" href="javascript:;">潮州</a><a title="揭阳" attr-id="445200" href="javascript:;">揭阳</a><a title="云浮" attr-id="445300" href="javascript:;">云浮</a></dd></dl></div><div class="city-select city-district" style="display: none;"><dl class="fn-clear city-select-district"><dd><a title="荔湾" attr-id="440103" href="javascript:;">荔湾</a><a title="越秀" attr-id="440104" href="javascript:;">越秀</a><a title="海珠" attr-id="440105" href="javascript:;">海珠</a><a title="天河" attr-id="440106" href="javascript:;" class="current">天河</a><a title="白云" attr-id="440111" href="javascript:;">白云</a><a title="黄埔" attr-id="440112" href="javascript:;">黄埔</a><a title="番禺" attr-id="440113" href="javascript:;">番禺</a><a title="花都" attr-id="440114" href="javascript:;">花都</a><a title="南沙" attr-id="440115" href="javascript:;">南沙</a><a title="萝岗" attr-id="440116" href="javascript:;">萝岗</a><a title="增城" attr-id="440183" href="javascript:;">增城</a><a title="从化" attr-id="440184" href="javascript:;">从化</a></dd></dl></div><div class="city-select city-street" style="display: none;"><dl class="fn-clear city-select-street"><dd><a title="五山街道" attr-id="440106001" href="javascript:;" attr-parent-id="440106">五山街道</a><a title="员村街道" attr-id="440106002" href="javascript:;" attr-parent-id="440106">员村街道</a><a title="车陂街道" attr-id="440106003" href="javascript:;" attr-parent-id="440106">车陂街道</a><a title="沙河街道" attr-id="440106004" href="javascript:;" attr-parent-id="440106">沙河街道</a><a title="石牌街道" attr-id="440106006" href="javascript:;" attr-parent-id="440106">石牌街道</a><a title="沙东街道" attr-id="440106007" href="javascript:;" attr-parent-id="440106">沙东街道</a><a title="天河南街道" attr-id="440106008" href="javascript:;" attr-parent-id="440106">天河南街道</a><a title="林和街道" attr-id="440106009" href="javascript:;" attr-parent-id="440106">林和街道</a><a title="兴华街道" attr-id="440106010" href="javascript:;" attr-parent-id="440106">兴华街道</a><a title="棠下街道" attr-id="440106011" href="javascript:;" attr-parent-id="440106" class="current">棠下街道</a><a title="天园街道" attr-id="440106012" href="javascript:;" attr-parent-id="440106">天园街道</a><a title="猎德街道" attr-id="440106013" href="javascript:;" attr-parent-id="440106">猎德街道</a><a title="冼村街道" attr-id="440106014" href="javascript:;" attr-parent-id="440106">冼村街道</a><a title="元岗街道" attr-id="440106015" href="javascript:;" attr-parent-id="440106">元岗街道</a><a title="黄村街道" attr-id="440106016" href="javascript:;" attr-parent-id="440106">黄村街道</a><a title="长兴街道" attr-id="440106017" href="javascript:;" attr-parent-id="440106">长兴街道</a><a title="龙洞街道" attr-id="440106018" href="javascript:;" attr-parent-id="440106">龙洞街道</a><a title="凤凰街道" attr-id="440106019" href="javascript:;" attr-parent-id="440106">凤凰街道</a><a title="前进街道" attr-id="440106020" href="javascript:;" attr-parent-id="440106">前进街道</a><a title="珠吉街道" attr-id="440106021" href="javascript:;" attr-parent-id="440106">珠吉街道</a><a title="新塘街道" attr-id="440106022" href="javascript:;" attr-parent-id="440106">新塘街道</a></dd></dl><dl class="fn-clear city-select-street border-top"><dd><a title="稍后再说" attr-id="-1" href="javascript:;">稍后再说</a><span style="color:#ccc">先填详细地址，稍后再获取街道地址 </span></dd></dl></div></div></div></div></div></div>
+												</div>
+			<div class="msg-box">
+				<div class="msg msg-error  hide  " id="J_MsgDivision">
+					<i></i>
+
+					<div class="msg-cnt tsl" data-phase-id="d_p_mapRecomend">
+											</div>
+				</div>
+			</div>
+			<div class="msg-box">
+				<div class="msg msg-attension hide" id="J_MsgSuggestion" style="visibility: hidden;">
+					<i></i>
+
+					<div class="msg-cnt"></div>
+				</div>
+			</div>
+		</div>
+		<div class="item item-street" id="J_ItemStreet">
+			<span class="item-label tsl" data-phase-id="d_p_addressDetail">详细地址 <i>*</i></span>
+
+			<div class="ks-combobox" id="J_ComboboxStreet" aria-pressed="false">
+				<div class="ks-combobox-input-wrap">
+					<textarea class="ks-combobox-input i-ta tsl" aria-combobox="list" role="combobox" autocomplete="off" name="addressDetail" id="J_Street" aria-label="详细地址" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息" data-inner_placeholder="d_p_input_inner_detailAddress" data-pattern="^[\s\S]{5,120}$" data-msg="d_p_detailAddress_msg" data-ph="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息">棠安路119号 棠韵大厦 2楼 216室</textarea>
+				</div>
+			</div>
+			<div class="msg-box">
+				<div class="msg msg-error hide" id="J_MsgStreet">
+					<i></i>
+
+					<div class="msg-cnt"></div>
+				</div>
+			</div>
+		</div>
+		<div class="item item-postcode" id="J_ItemPostCode">
+			<span class="item-label tsl" data-phase-id="d_p_postCode">邮政编码 </span>
+			<div class="item-warp">
+			<input name="post" aria-label="邮政编码" maxlength="16" data-item="postcode" placeholder="如您不清楚邮递区号，请填写000000" data-inner_placeholder="d_p_input_inner_postCode" data-ph="如您不清楚邮递区号，请填写000000" data-pattern="^.{0,16}$" data-msg="d_p_postCode_msg" class="i-text tsl" id="J_PostCode" type="text" value="520000">
+			</div>
+			
+			<div class="msg hide" id="J_MsgPostCode">
+				<i></i>
+
+				<div class="msg-cnt tsl" data-phase-id="d_p_postNotExit">邮编不存在</div>
+			</div>
+		</div>
+		<div class="item item-name" id="J_ItemName">
+			<span class="item-label tsl" data-phase-id="d_p_receiverName">收货人姓名 <i>*</i></span>
+			<div class="item-warp">
+			<input name="fullName" class="i-text tsl" aria-label="收货人姓名" type="text" id="J_Name" placeholder="长度不超过25个字符" data-inner_placeholder="d_p_input_inner_fullName" data-pattern="^.{2,25}$" data-msg="d_p_fullName_msg" data-ph="长度不超过25个字符" value="郭新境">
+			</div>
+			
+			<div class="msg hide" id="J_MsgName">
+				<i></i>
+
+				<div class="msg-cnt"></div>
+			</div>
+		</div>
+		<div class="item item-mobile" id="J_ItemMobile">
+			<span class="item-label tsl" data-phase-id="d_p_mobileNumber">手机号码 </span>
+			<select name="mobile_area" id="J_MobileArea" aria-label="手机号码">
+									<option value="1" data-code="86" selected="selected"> 中国大陆  +86</option>
+									<option value="2" data-code="852"> 香港  +852</option>
+									<option value="3" data-code="853"> 澳门  +853</option>
+									<option value="4" data-code="886"> 台湾  +886</option>
+									<option value="5" data-code="82"> 韩国  +82</option>
+									<option value="6" data-code="81"> 日本  +81</option>
+									<option value="7" data-code="1"> 美国  +1</option>
+									<option value="8" data-code="1"> 加拿大  +1</option>
+									<option value="9" data-code="44"> 英国  +44</option>
+									<option value="10" data-code="65"> 新加坡  +65</option>
+									<option value="11" data-code="60"> 马来西亚  +60</option>
+									<option value="12" data-code="66"> 泰国  +66</option>
+									<option value="13" data-code="84"> 越南  +84</option>
+									<option value="14" data-code="63"> 菲律宾  +63</option>
+									<option value="15" data-code="62"> 印度尼西亚  +62</option>
+									<option value="16" data-code="39"> 意大利  +39</option>
+									<option value="17" data-code="7"> 俄罗斯  +7</option>
+									<option value="18" data-code="64"> 新西兰  +64</option>
+									<option value="19" data-code="31"> 荷兰  +31</option>
+									<option value="20" data-code="46"> 瑞典  +46</option>
+									<option value="36" data-code="61"> 澳大利亚  +61</option>
+									<option value="21" data-code="380"> 乌克兰  +380</option>
+									<option value="91" data-code="33"> 法国  +33</option>
+									<option value="96" data-code="49"> 德国  +49</option>
+									<option value="22" data-code="93"> 阿富汗  +93</option>
+									<option value="25" data-code="355"> 阿尔巴尼亚  +355</option>
+									<option value="26" data-code="213"> 阿尔及利亚  +213</option>
+									<option value="27" data-code="1684"> 东萨摩亚(美)  +1684</option>
+									<option value="28" data-code="376"> 安道尔  +376</option>
+									<option value="29" data-code="244"> 安哥拉  +244</option>
+									<option value="30" data-code="1264"> 安圭拉岛(英)  +1264</option>
+									<option value="32" data-code="1268"> 安提瓜和巴布达  +1268</option>
+									<option value="33" data-code="54"> 阿根廷  +54</option>
+									<option value="34" data-code="374"> 亚美尼亚  +374</option>
+									<option value="35" data-code="297"> 阿鲁巴岛  +297</option>
+									<option value="37" data-code="43"> 奥地利  +43</option>
+									<option value="38" data-code="994"> 阿塞拜疆  +994</option>
+									<option value="39" data-code="973"> 巴林  +973</option>
+									<option value="41" data-code="880"> 孟加拉国  +880</option>
+									<option value="42" data-code="1246"> 巴巴多斯  +1246</option>
+									<option value="43" data-code="375"> 白俄罗斯  +375</option>
+									<option value="44" data-code="32"> 比利时  +32</option>
+									<option value="45" data-code="501"> 伯利兹  +501</option>
+									<option value="46" data-code="229"> 贝宁  +229</option>
+									<option value="47" data-code="1441"> 百慕大群岛(英)  +1441</option>
+									<option value="48" data-code="975"> 不丹  +975</option>
+									<option value="49" data-code="591"> 玻利维亚  +591</option>
+									<option value="50" data-code="387"> 波斯尼亚和黑塞哥维那  +387</option>
+									<option value="51" data-code="267"> 博茨瓦纳  +267</option>
+									<option value="52" data-code="55"> 巴西  +55</option>
+									<option value="53" data-code="359"> 保加利亚  +359</option>
+									<option value="54" data-code="226"> 布基纳法索  +226</option>
+									<option value="55" data-code="257"> 布隆迪  +257</option>
+									<option value="56" data-code="237"> 喀麦隆  +237</option>
+									<option value="58" data-code="238"> 佛得角  +238</option>
+									<option value="59" data-code="1345"> 开曼群岛(英)  +1345</option>
+									<option value="60" data-code="236"> 中非  +236</option>
+									<option value="61" data-code="235"> 乍得  +235</option>
+									<option value="62" data-code="56"> 智利  +56</option>
+									<option value="63" data-code="61"> 圣诞岛  +61</option>
+									<option value="64" data-code="61"> 科科斯岛  +61</option>
+									<option value="65" data-code="57"> 哥伦比亚  +57</option>
+									<option value="66" data-code="269"> 科摩罗  +269</option>
+									<option value="67" data-code="242"> 刚果  +242</option>
+									<option value="68" data-code="682"> 科克群岛(新)  +682</option>
+									<option value="69" data-code="506"> 哥斯达黎加  +506</option>
+									<option value="70" data-code="385"> 克罗地亚  +385</option>
+									<option value="71" data-code="53"> 古巴  +53</option>
+									<option value="72" data-code="357"> 塞浦路斯  +357</option>
+									<option value="73" data-code="420"> 捷克  +420</option>
+									<option value="75" data-code="45"> 丹麦  +45</option>
+									<option value="77" data-code="253"> 吉布提  +253</option>
+									<option value="78" data-code="1767"> 多米尼克国  +1767</option>
+									<option value="79" data-code="1809"> 多米尼加共和国  +1809</option>
+									<option value="80" data-code="593"> 厄瓜多尔  +593</option>
+									<option value="81" data-code="20"> 埃及  +20</option>
+									<option value="82" data-code="503"> 萨尔瓦多  +503</option>
+									<option value="83" data-code="240"> 赤道几内亚  +240</option>
+									<option value="84" data-code="291"> 厄立特里亚  +291</option>
+									<option value="85" data-code="372"> 爱沙尼亚  +372</option>
+									<option value="86" data-code="251"> 埃塞俄比亚  +251</option>
+									<option value="87" data-code="500"> 福克兰群岛  +500</option>
+									<option value="88" data-code="298"> 法罗群岛(丹)  +298</option>
+									<option value="89" data-code="679"> 斐济  +679</option>
+									<option value="90" data-code="358"> 芬兰  +358</option>
+									<option value="92" data-code="689"> 法属波里尼西亚  +689</option>
+									<option value="93" data-code="241"> 加蓬  +241</option>
+									<option value="94" data-code="220"> 冈比亚  +220</option>
+									<option value="95" data-code="995"> 格鲁吉亚  +995</option>
+									<option value="97" data-code="233"> 加纳  +233</option>
+									<option value="98" data-code="350"> 直布罗陀(英)  +350</option>
+									<option value="99" data-code="30"> 希腊  +30</option>
+									<option value="100" data-code="299"> 格陵兰岛  +299</option>
+									<option value="101" data-code="1473"> 格林纳达  +1473</option>
+									<option value="102" data-code="590"> 瓜德罗普岛(法)  +590</option>
+									<option value="103" data-code="1671"> 关岛(美)  +1671</option>
+									<option value="104" data-code="502"> 危地马拉  +502</option>
+									<option value="105" data-code="224"> 几内亚  +224</option>
+									<option value="106" data-code="245"> 几内亚比绍  +245</option>
+									<option value="108" data-code="592"> 圭亚那  +592</option>
+									<option value="109" data-code="509"> 海地  +509</option>
+									<option value="110" data-code="504"> 洪都拉斯  +504</option>
+									<option value="111" data-code="36"> 匈牙利  +36</option>
+									<option value="112" data-code="354"> 冰岛  +354</option>
+									<option value="113" data-code="91"> 印度  +91</option>
+									<option value="114" data-code="98"> 伊郎  +98</option>
+									<option value="115" data-code="964"> 伊拉克  +964</option>
+									<option value="116" data-code="353"> 爱尔兰  +353</option>
+									<option value="118" data-code="972"> 以色列  +972</option>
+									<option value="119" data-code="225"> 科特迪瓦  +225</option>
+									<option value="120" data-code="1876"> 牙买加  +1876</option>
+									<option value="122" data-code="962"> 约旦  +962</option>
+									<option value="123" data-code="855"> 柬埔塞  +855</option>
+									<option value="124" data-code="7"> 哈萨克斯坦  +7</option>
+									<option value="125" data-code="254"> 肯尼亚  +254</option>
+									<option value="126" data-code="686"> 基里巴斯  +686</option>
+									<option value="127" data-code="965"> 科威特  +965</option>
+									<option value="128" data-code="996"> 吉尔吉斯斯坦  +996</option>
+									<option value="129" data-code="856"> 老挝  +856</option>
+									<option value="130" data-code="371"> 拉脱维亚  +371</option>
+									<option value="131" data-code="961"> 黎巴嫩  +961</option>
+									<option value="132" data-code="266"> 莱索托  +266</option>
+									<option value="133" data-code="231"> 利比里亚  +231</option>
+									<option value="134" data-code="218"> 利比亚  +218</option>
+									<option value="135" data-code="423"> 列支敦士登  +423</option>
+									<option value="136" data-code="370"> 立陶宛  +370</option>
+									<option value="137" data-code="352"> 卢森堡  +352</option>
+									<option value="138" data-code="389"> 马其顿  +389</option>
+									<option value="139" data-code="261"> 马达加斯加  +261</option>
+									<option value="140" data-code="265"> 马拉维  +265</option>
+									<option value="141" data-code="960"> 马尔代夫  +960</option>
+									<option value="142" data-code="223"> 马里  +223</option>
+									<option value="143" data-code="356"> 马耳他  +356</option>
+									<option value="144" data-code="692"> 马绍尔群岛  +692</option>
+									<option value="145" data-code="596"> 马提尼克(法)  +596</option>
+									<option value="146" data-code="222"> 毛里塔尼亚  +222</option>
+									<option value="147" data-code="230"> 毛里求斯  +230</option>
+									<option value="148" data-code="262"> 马约特岛  +262</option>
+									<option value="149" data-code="52"> 墨西哥  +52</option>
+									<option value="150" data-code="691"> 密克罗尼西亚(美)  +691</option>
+									<option value="152" data-code="377"> 摩纳哥  +377</option>
+									<option value="153" data-code="976"> 蒙古  +976</option>
+									<option value="155" data-code="1664"> 蒙特塞拉特岛(英)  +1664</option>
+									<option value="156" data-code="212"> 摩洛哥  +212</option>
+									<option value="157" data-code="258"> 莫桑比克  +258</option>
+									<option value="158" data-code="95"> 缅甸  +95</option>
+									<option value="159" data-code="264"> 纳米比亚  +264</option>
+									<option value="160" data-code="674"> 瑙鲁  +674</option>
+									<option value="161" data-code="977"> 尼泊尔  +977</option>
+									<option value="162" data-code="599"> 荷属安的列斯群岛  +599</option>
+									<option value="163" data-code="687"> 新喀里多尼亚群岛(法)  +687</option>
+									<option value="164" data-code="505"> 尼加拉瓜  +505</option>
+									<option value="165" data-code="227"> 尼日尔  +227</option>
+									<option value="166" data-code="234"> 尼日利亚  +234</option>
+									<option value="167" data-code="683"> 纽埃岛(新)  +683</option>
+									<option value="168" data-code="672"> 诺福克岛(澳)  +672</option>
+									<option value="169" data-code="850"> 朝鲜  +850</option>
+									<option value="170" data-code="1670"> 马里亚纳群岛  +1670</option>
+									<option value="171" data-code="47"> 挪威  +47</option>
+									<option value="172" data-code="968"> 阿曼  +968</option>
+									<option value="173" data-code="92"> 巴基斯坦  +92</option>
+									<option value="174" data-code="680"> 帕劳(美)  +680</option>
+									<option value="175" data-code="507"> 巴拿马  +507</option>
+									<option value="176" data-code="675"> 巴布亚新几内亚  +675</option>
+									<option value="177" data-code="595"> 巴拉圭  +595</option>
+									<option value="178" data-code="51"> 秘鲁  +51</option>
+									<option value="179" data-code="48"> 波兰  +48</option>
+									<option value="180" data-code="351"> 葡萄牙  +351</option>
+									<option value="181" data-code="1"> 波多黎各(美)  +1</option>
+									<option value="182" data-code="974"> 卡塔尔  +974</option>
+									<option value="183" data-code="373"> 摩尔多瓦  +373</option>
+									<option value="184" data-code="262"> 留尼汪岛  +262</option>
+									<option value="185" data-code="40"> 罗马尼亚  +40</option>
+									<option value="186" data-code="250"> 卢旺达  +250</option>
+									<option value="187" data-code="247"> 阿森松(英)  +247</option>
+									<option value="188" data-code="290"> 圣赫勒拿  +290</option>
+									<option value="189" data-code="1869"> 圣克里斯托弗和尼维斯  +1869</option>
+									<option value="190" data-code="1758"> 圣卢西亚  +1758</option>
+									<option value="191" data-code="508"> 圣皮埃尔岛及密克隆岛  +508</option>
+									<option value="192" data-code="1784"> 圣文森特岛(英)  +1784</option>
+									<option value="193" data-code="685"> 西萨摩亚  +685</option>
+									<option value="194" data-code="378"> 圣马力诺  +378</option>
+									<option value="195" data-code="239"> 圣多美和普林西比  +239</option>
+									<option value="196" data-code="966"> 沙特阿拉伯  +966</option>
+									<option value="197" data-code="221"> 塞内加尔  +221</option>
+									<option value="199" data-code="248"> 塞舌尔  +248</option>
+									<option value="200" data-code="232"> 塞拉利昂  +232</option>
+									<option value="202" data-code="421"> 斯洛伐克  +421</option>
+									<option value="203" data-code="386"> 斯洛文尼亚  +386</option>
+									<option value="204" data-code="677"> 所罗门群岛  +677</option>
+									<option value="205" data-code="252"> 索马里  +252</option>
+									<option value="206" data-code="27"> 南非  +27</option>
+									<option value="208" data-code="34"> 西班牙  +34</option>
+									<option value="209" data-code="94"> 斯里兰卡  +94</option>
+									<option value="210" data-code="249"> 苏丹  +249</option>
+									<option value="211" data-code="597"> 苏里南  +597</option>
+									<option value="213" data-code="268"> 斯威士兰  +268</option>
+									<option value="214" data-code="41"> 瑞士  +41</option>
+									<option value="215" data-code="963"> 叙利亚  +963</option>
+									<option value="216" data-code="992"> 塔吉克斯坦  +992</option>
+									<option value="217" data-code="1242"> 巴哈马国  +1242</option>
+									<option value="218" data-code="14397"> 梵蒂冈  +14397</option>
+									<option value="220" data-code="228"> 多哥  +228</option>
+									<option value="222" data-code="676"> 汤加  +676</option>
+									<option value="223" data-code="1868"> 特立尼达和多巴哥  +1868</option>
+									<option value="224" data-code="216"> 突尼斯  +216</option>
+									<option value="225" data-code="90"> 土耳其  +90</option>
+									<option value="226" data-code="993"> 土库曼斯坦  +993</option>
+									<option value="227" data-code="1649"> 特克斯和凯科斯群岛(英)  +1649</option>
+									<option value="228" data-code="688"> 图瓦卢  +688</option>
+									<option value="229" data-code="256"> 乌干达  +256</option>
+									<option value="231" data-code="44"> 英国  +44</option>
+									<option value="232" data-code="255"> 坦桑尼亚  +255</option>
+									<option value="234" data-code="598"> 乌拉圭  +598</option>
+									<option value="235" data-code="998"> 乌兹别克斯坦  +998</option>
+									<option value="236" data-code="678"> 瓦努阿图  +678</option>
+									<option value="237" data-code="58"> 委内瑞拉  +58</option>
+									<option value="238" data-code="1340"> 维尔京群岛(英)  +1340</option>
+									<option value="242" data-code="967"> 也门  +967</option>
+									<option value="243" data-code="381"> 南斯拉夫  +381</option>
+									<option value="244" data-code="260"> 赞比亚  +260</option>
+									<option value="245" data-code="259"> 桑给巴尔  +259</option>
+									<option value="246" data-code="263"> 津巴布韦  +263</option>
+							</select>
+			<div class="item-warp">
+			<input name="mobile" class="i-text tsl" aria-label="手机号码" type="text" id="J_Mobile" placeholder="电话号码、手机号码必须填一项" data-inner_placeholder="d_p_input_inner_mobile" data-pattern="^\d{6,20}$" data-ph="电话号码、手机号码必须填一项" data-msg="d_p_mobile_msg" value="17620151200">
+			</div>
+
+			<div class="msg hide" id="J_MsgMobile">
+				<i></i>
+
+				<div class="msg-cnt"></div>
+			</div>
+		</div>
+		<div class="item item-phone" id="J_ItemPhone">
+			
+			<span class="item-label tsl" data-phase-id="d_p_phoneNumber">电话号码 </span>
+			<select name="phone_area" id="J_PhoneArea" aria-label="电话号码">
+									<option value="1" data-code="86"> 中国大陆  +86</option>
+									<option value="2" data-code="852"> 香港  +852</option>
+									<option value="3" data-code="853"> 澳门  +853</option>
+									<option value="4" data-code="886"> 台湾  +886</option>
+									<option value="5" data-code="82"> 韩国  +82</option>
+									<option value="6" data-code="81"> 日本  +81</option>
+									<option value="7" data-code="1"> 美国  +1</option>
+									<option value="8" data-code="1"> 加拿大  +1</option>
+									<option value="9" data-code="44"> 英国  +44</option>
+									<option value="10" data-code="65"> 新加坡  +65</option>
+									<option value="11" data-code="60"> 马来西亚  +60</option>
+									<option value="12" data-code="66"> 泰国  +66</option>
+									<option value="13" data-code="84"> 越南  +84</option>
+									<option value="14" data-code="63"> 菲律宾  +63</option>
+									<option value="15" data-code="62"> 印度尼西亚  +62</option>
+									<option value="16" data-code="39"> 意大利  +39</option>
+									<option value="17" data-code="7"> 俄罗斯  +7</option>
+									<option value="18" data-code="64"> 新西兰  +64</option>
+									<option value="19" data-code="31"> 荷兰  +31</option>
+									<option value="20" data-code="46"> 瑞典  +46</option>
+									<option value="36" data-code="61"> 澳大利亚  +61</option>
+									<option value="21" data-code="380"> 乌克兰  +380</option>
+									<option value="91" data-code="33"> 法国  +33</option>
+									<option value="96" data-code="49"> 德国  +49</option>
+									<option value="22" data-code="93"> 阿富汗  +93</option>
+									<option value="25" data-code="355"> 阿尔巴尼亚  +355</option>
+									<option value="26" data-code="213"> 阿尔及利亚  +213</option>
+									<option value="27" data-code="1684"> 东萨摩亚(美)  +1684</option>
+									<option value="28" data-code="376"> 安道尔  +376</option>
+									<option value="29" data-code="244"> 安哥拉  +244</option>
+									<option value="30" data-code="1264"> 安圭拉岛(英)  +1264</option>
+									<option value="32" data-code="1268"> 安提瓜和巴布达  +1268</option>
+									<option value="33" data-code="54"> 阿根廷  +54</option>
+									<option value="34" data-code="374"> 亚美尼亚  +374</option>
+									<option value="35" data-code="297"> 阿鲁巴岛  +297</option>
+									<option value="37" data-code="43"> 奥地利  +43</option>
+									<option value="38" data-code="994"> 阿塞拜疆  +994</option>
+									<option value="39" data-code="973"> 巴林  +973</option>
+									<option value="41" data-code="880"> 孟加拉国  +880</option>
+									<option value="42" data-code="1246"> 巴巴多斯  +1246</option>
+									<option value="43" data-code="375"> 白俄罗斯  +375</option>
+									<option value="44" data-code="32"> 比利时  +32</option>
+									<option value="45" data-code="501"> 伯利兹  +501</option>
+									<option value="46" data-code="229"> 贝宁  +229</option>
+									<option value="47" data-code="1441"> 百慕大群岛(英)  +1441</option>
+									<option value="48" data-code="975"> 不丹  +975</option>
+									<option value="49" data-code="591"> 玻利维亚  +591</option>
+									<option value="50" data-code="387"> 波斯尼亚和黑塞哥维那  +387</option>
+									<option value="51" data-code="267"> 博茨瓦纳  +267</option>
+									<option value="52" data-code="55"> 巴西  +55</option>
+									<option value="53" data-code="359"> 保加利亚  +359</option>
+									<option value="54" data-code="226"> 布基纳法索  +226</option>
+									<option value="55" data-code="257"> 布隆迪  +257</option>
+									<option value="56" data-code="237"> 喀麦隆  +237</option>
+									<option value="58" data-code="238"> 佛得角  +238</option>
+									<option value="59" data-code="1345"> 开曼群岛(英)  +1345</option>
+									<option value="60" data-code="236"> 中非  +236</option>
+									<option value="61" data-code="235"> 乍得  +235</option>
+									<option value="62" data-code="56"> 智利  +56</option>
+									<option value="63" data-code="61"> 圣诞岛  +61</option>
+									<option value="64" data-code="61"> 科科斯岛  +61</option>
+									<option value="65" data-code="57"> 哥伦比亚  +57</option>
+									<option value="66" data-code="269"> 科摩罗  +269</option>
+									<option value="67" data-code="242"> 刚果  +242</option>
+									<option value="68" data-code="682"> 科克群岛(新)  +682</option>
+									<option value="69" data-code="506"> 哥斯达黎加  +506</option>
+									<option value="70" data-code="385"> 克罗地亚  +385</option>
+									<option value="71" data-code="53"> 古巴  +53</option>
+									<option value="72" data-code="357"> 塞浦路斯  +357</option>
+									<option value="73" data-code="420"> 捷克  +420</option>
+									<option value="75" data-code="45"> 丹麦  +45</option>
+									<option value="77" data-code="253"> 吉布提  +253</option>
+									<option value="78" data-code="1767"> 多米尼克国  +1767</option>
+									<option value="79" data-code="1809"> 多米尼加共和国  +1809</option>
+									<option value="80" data-code="593"> 厄瓜多尔  +593</option>
+									<option value="81" data-code="20"> 埃及  +20</option>
+									<option value="82" data-code="503"> 萨尔瓦多  +503</option>
+									<option value="83" data-code="240"> 赤道几内亚  +240</option>
+									<option value="84" data-code="291"> 厄立特里亚  +291</option>
+									<option value="85" data-code="372"> 爱沙尼亚  +372</option>
+									<option value="86" data-code="251"> 埃塞俄比亚  +251</option>
+									<option value="87" data-code="500"> 福克兰群岛  +500</option>
+									<option value="88" data-code="298"> 法罗群岛(丹)  +298</option>
+									<option value="89" data-code="679"> 斐济  +679</option>
+									<option value="90" data-code="358"> 芬兰  +358</option>
+									<option value="92" data-code="689"> 法属波里尼西亚  +689</option>
+									<option value="93" data-code="241"> 加蓬  +241</option>
+									<option value="94" data-code="220"> 冈比亚  +220</option>
+									<option value="95" data-code="995"> 格鲁吉亚  +995</option>
+									<option value="97" data-code="233"> 加纳  +233</option>
+									<option value="98" data-code="350"> 直布罗陀(英)  +350</option>
+									<option value="99" data-code="30"> 希腊  +30</option>
+									<option value="100" data-code="299"> 格陵兰岛  +299</option>
+									<option value="101" data-code="1473"> 格林纳达  +1473</option>
+									<option value="102" data-code="590"> 瓜德罗普岛(法)  +590</option>
+									<option value="103" data-code="1671"> 关岛(美)  +1671</option>
+									<option value="104" data-code="502"> 危地马拉  +502</option>
+									<option value="105" data-code="224"> 几内亚  +224</option>
+									<option value="106" data-code="245"> 几内亚比绍  +245</option>
+									<option value="108" data-code="592"> 圭亚那  +592</option>
+									<option value="109" data-code="509"> 海地  +509</option>
+									<option value="110" data-code="504"> 洪都拉斯  +504</option>
+									<option value="111" data-code="36"> 匈牙利  +36</option>
+									<option value="112" data-code="354"> 冰岛  +354</option>
+									<option value="113" data-code="91"> 印度  +91</option>
+									<option value="114" data-code="98"> 伊郎  +98</option>
+									<option value="115" data-code="964"> 伊拉克  +964</option>
+									<option value="116" data-code="353"> 爱尔兰  +353</option>
+									<option value="118" data-code="972"> 以色列  +972</option>
+									<option value="119" data-code="225"> 科特迪瓦  +225</option>
+									<option value="120" data-code="1876"> 牙买加  +1876</option>
+									<option value="122" data-code="962"> 约旦  +962</option>
+									<option value="123" data-code="855"> 柬埔塞  +855</option>
+									<option value="124" data-code="7"> 哈萨克斯坦  +7</option>
+									<option value="125" data-code="254"> 肯尼亚  +254</option>
+									<option value="126" data-code="686"> 基里巴斯  +686</option>
+									<option value="127" data-code="965"> 科威特  +965</option>
+									<option value="128" data-code="996"> 吉尔吉斯斯坦  +996</option>
+									<option value="129" data-code="856"> 老挝  +856</option>
+									<option value="130" data-code="371"> 拉脱维亚  +371</option>
+									<option value="131" data-code="961"> 黎巴嫩  +961</option>
+									<option value="132" data-code="266"> 莱索托  +266</option>
+									<option value="133" data-code="231"> 利比里亚  +231</option>
+									<option value="134" data-code="218"> 利比亚  +218</option>
+									<option value="135" data-code="423"> 列支敦士登  +423</option>
+									<option value="136" data-code="370"> 立陶宛  +370</option>
+									<option value="137" data-code="352"> 卢森堡  +352</option>
+									<option value="138" data-code="389"> 马其顿  +389</option>
+									<option value="139" data-code="261"> 马达加斯加  +261</option>
+									<option value="140" data-code="265"> 马拉维  +265</option>
+									<option value="141" data-code="960"> 马尔代夫  +960</option>
+									<option value="142" data-code="223"> 马里  +223</option>
+									<option value="143" data-code="356"> 马耳他  +356</option>
+									<option value="144" data-code="692"> 马绍尔群岛  +692</option>
+									<option value="145" data-code="596"> 马提尼克(法)  +596</option>
+									<option value="146" data-code="222"> 毛里塔尼亚  +222</option>
+									<option value="147" data-code="230"> 毛里求斯  +230</option>
+									<option value="148" data-code="262"> 马约特岛  +262</option>
+									<option value="149" data-code="52"> 墨西哥  +52</option>
+									<option value="150" data-code="691"> 密克罗尼西亚(美)  +691</option>
+									<option value="152" data-code="377"> 摩纳哥  +377</option>
+									<option value="153" data-code="976"> 蒙古  +976</option>
+									<option value="155" data-code="1664"> 蒙特塞拉特岛(英)  +1664</option>
+									<option value="156" data-code="212"> 摩洛哥  +212</option>
+									<option value="157" data-code="258"> 莫桑比克  +258</option>
+									<option value="158" data-code="95"> 缅甸  +95</option>
+									<option value="159" data-code="264"> 纳米比亚  +264</option>
+									<option value="160" data-code="674"> 瑙鲁  +674</option>
+									<option value="161" data-code="977"> 尼泊尔  +977</option>
+									<option value="162" data-code="599"> 荷属安的列斯群岛  +599</option>
+									<option value="163" data-code="687"> 新喀里多尼亚群岛(法)  +687</option>
+									<option value="164" data-code="505"> 尼加拉瓜  +505</option>
+									<option value="165" data-code="227"> 尼日尔  +227</option>
+									<option value="166" data-code="234"> 尼日利亚  +234</option>
+									<option value="167" data-code="683"> 纽埃岛(新)  +683</option>
+									<option value="168" data-code="672"> 诺福克岛(澳)  +672</option>
+									<option value="169" data-code="850"> 朝鲜  +850</option>
+									<option value="170" data-code="1670"> 马里亚纳群岛  +1670</option>
+									<option value="171" data-code="47"> 挪威  +47</option>
+									<option value="172" data-code="968"> 阿曼  +968</option>
+									<option value="173" data-code="92"> 巴基斯坦  +92</option>
+									<option value="174" data-code="680"> 帕劳(美)  +680</option>
+									<option value="175" data-code="507"> 巴拿马  +507</option>
+									<option value="176" data-code="675"> 巴布亚新几内亚  +675</option>
+									<option value="177" data-code="595"> 巴拉圭  +595</option>
+									<option value="178" data-code="51"> 秘鲁  +51</option>
+									<option value="179" data-code="48"> 波兰  +48</option>
+									<option value="180" data-code="351"> 葡萄牙  +351</option>
+									<option value="181" data-code="1"> 波多黎各(美)  +1</option>
+									<option value="182" data-code="974"> 卡塔尔  +974</option>
+									<option value="183" data-code="373"> 摩尔多瓦  +373</option>
+									<option value="184" data-code="262"> 留尼汪岛  +262</option>
+									<option value="185" data-code="40"> 罗马尼亚  +40</option>
+									<option value="186" data-code="250"> 卢旺达  +250</option>
+									<option value="187" data-code="247"> 阿森松(英)  +247</option>
+									<option value="188" data-code="290"> 圣赫勒拿  +290</option>
+									<option value="189" data-code="1869"> 圣克里斯托弗和尼维斯  +1869</option>
+									<option value="190" data-code="1758"> 圣卢西亚  +1758</option>
+									<option value="191" data-code="508"> 圣皮埃尔岛及密克隆岛  +508</option>
+									<option value="192" data-code="1784"> 圣文森特岛(英)  +1784</option>
+									<option value="193" data-code="685"> 西萨摩亚  +685</option>
+									<option value="194" data-code="378"> 圣马力诺  +378</option>
+									<option value="195" data-code="239"> 圣多美和普林西比  +239</option>
+									<option value="196" data-code="966"> 沙特阿拉伯  +966</option>
+									<option value="197" data-code="221"> 塞内加尔  +221</option>
+									<option value="199" data-code="248"> 塞舌尔  +248</option>
+									<option value="200" data-code="232"> 塞拉利昂  +232</option>
+									<option value="202" data-code="421"> 斯洛伐克  +421</option>
+									<option value="203" data-code="386"> 斯洛文尼亚  +386</option>
+									<option value="204" data-code="677"> 所罗门群岛  +677</option>
+									<option value="205" data-code="252"> 索马里  +252</option>
+									<option value="206" data-code="27"> 南非  +27</option>
+									<option value="208" data-code="34"> 西班牙  +34</option>
+									<option value="209" data-code="94"> 斯里兰卡  +94</option>
+									<option value="210" data-code="249"> 苏丹  +249</option>
+									<option value="211" data-code="597"> 苏里南  +597</option>
+									<option value="213" data-code="268"> 斯威士兰  +268</option>
+									<option value="214" data-code="41"> 瑞士  +41</option>
+									<option value="215" data-code="963"> 叙利亚  +963</option>
+									<option value="216" data-code="992"> 塔吉克斯坦  +992</option>
+									<option value="217" data-code="1242"> 巴哈马国  +1242</option>
+									<option value="218" data-code="14397"> 梵蒂冈  +14397</option>
+									<option value="220" data-code="228"> 多哥  +228</option>
+									<option value="222" data-code="676"> 汤加  +676</option>
+									<option value="223" data-code="1868"> 特立尼达和多巴哥  +1868</option>
+									<option value="224" data-code="216"> 突尼斯  +216</option>
+									<option value="225" data-code="90"> 土耳其  +90</option>
+									<option value="226" data-code="993"> 土库曼斯坦  +993</option>
+									<option value="227" data-code="1649"> 特克斯和凯科斯群岛(英)  +1649</option>
+									<option value="228" data-code="688"> 图瓦卢  +688</option>
+									<option value="229" data-code="256"> 乌干达  +256</option>
+									<option value="231" data-code="44"> 英国  +44</option>
+									<option value="232" data-code="255"> 坦桑尼亚  +255</option>
+									<option value="234" data-code="598"> 乌拉圭  +598</option>
+									<option value="235" data-code="998"> 乌兹别克斯坦  +998</option>
+									<option value="236" data-code="678"> 瓦努阿图  +678</option>
+									<option value="237" data-code="58"> 委内瑞拉  +58</option>
+									<option value="238" data-code="1340"> 维尔京群岛(英)  +1340</option>
+									<option value="242" data-code="967"> 也门  +967</option>
+									<option value="243" data-code="381"> 南斯拉夫  +381</option>
+									<option value="244" data-code="260"> 赞比亚  +260</option>
+									<option value="245" data-code="259"> 桑给巴尔  +259</option>
+									<option value="246" data-code="263"> 津巴布韦  +263</option>
+							</select>
+			<div class="item-warp">
+			<input name="phoneSection" maxlength="6" class="i-text i-text-short tsl" id="J_PhoneSection" aria-label="区号" placeholder="区号" data-inner_placeholder="d_p_input_inner_phoneSection" data-ph="区号" type="text" value=""> -
+			</div>
+			<div class="item-warp">
+			<input name="phoneCode" maxlength="10" class="i-text i-text-short tsl" id="J_PhoneCode" aria-label="电话号码" placeholder="电话号码" data-inner_placeholder="d_p_input_inner_phoneCode" data-ph="电话号码" type="text" value=""> -
+			</div>
+			<div class="item-warp">
+			<input name="phoneExt" maxlength="6" id="J_PhoneExt" class="i-text i-text-short tsl" aria-label="分机" placeholder="分机" data-inner_placeholder="d_p_input_inner_phoneExt" data-ph="分机" type="text" value="">
+			</div>
+			<input type="hidden" class="tsl" value="" id="J_Phone" data-pattern="^\d{3,6}-\d{5,10}(?:-\d+)?$" data-msg="d_p_wrongFormat">
+			
+			<div class="msg hide" id="J_MsgPhone">
+				<i></i>
+
+				<div class="msg-cnt"></div>
+			</div>
+		</div>
+		<div class="item item-set-default" id="j_ItemSetDefault">
+			<input type="checkbox" checked="" class="i-chk" name="defaultAddress" id="J_SetDefault"> <label for="J_SetDefault" class="tsl" data-phase-id="d_p_saveAsDefaultAddress">设置为默认收货地址</label>
+		</div>
+		<div class="item">
+			<button type="submit" class=" btn  tsl" data-phase-id="d_p_saveSubmit">保存</button>
+			<div class="msg hide" id="J_MsgSubmit">
+				<i></i>
+				<div class="msg-cnt"></div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+
+	</div>
+</div>
+
+
+
+    <!-- iframe end-->
+    
+   </div>
+   <a href="" title="关闭" class="tc-popup-hide"></a>
+  </div>
+</div>
+<!--弹窗结束 -->
+</body>
+</html>
+
+
+

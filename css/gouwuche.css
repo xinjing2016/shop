@@ -1,0 +1,133 @@
+.dingdan-detail{
+    border: 1px solid rgb(218,243,255);
+}
+.dingdan-detail:hover{
+    border:1px solid rgb(174,216,255);
+}
+.dingdan-d-top{
+    height: 42px;
+    line-height: 42px;
+    /*padding: 10px 0;*/
+    background-color: rgb(234,248,255);
+}
+.dingdan-data{
+    cursor: default;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.dingdan-show{
+    height: 110px;
+    /*padding: 10px 0;*/
+    overflow: hidden;
+}
+.dingdan-show>div{
+    float: left;
+    width: 149px;
+    height: 110px;
+    padding: 10px 0;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-right:1px solid rgb(218,243,255);
+}
+
+.dingdan-show  .dingdan-pictrue{
+    float: left;
+    width: 310px;
+    height: 110px;
+    margin-left: 20px;
+    overflow: hidden;
+}
+.dingdan-pictrue img{
+    width: 80px;
+    height: 80px;
+    margin-right: 5px;
+    float: left;
+}
+.dingdan-pictrue span{
+    float: left;
+    width: 223px;
+    text-align: left;
+    vertical-align: top;
+}
+.dingdan-show .dingdan-caozuo{
+    border-right: 0px solid #73bade;
+}
+.dingdan-caozuo button{
+    color: #fff;
+    border: 1px solid #66b6ff;
+    padding:5px 12px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #66b6ff;
+}
+.top-button{
+    float: left;
+    margin: 10px 0;
+    margin-right: 5px;
+    margin-left: 20px;
+
+}
+.button-text{
+    float: left;
+}
+.nav-type .goodsnew{
+    width: 504px;
+}
+.nav-type li{
+    width: 165px;
+    /*background-color: #00aaee;*/
+}
+.row{
+    overflow: hidden;
+}
+.row .dianpu{
+    line-height: 30px;
+}
+.dingdan-show .dingdan-pictrue{
+    width: 378px;
+}
+.dingdan-show>div{
+    width: 165px;
+}
+.nav-type{
+    background-color: rgb(245,245,245);
+    border:1px solid inherit;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+}
+.nav-dingdan{
+    padding-top: 25px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+
+.nav-dingdan li{
+    border-bottom-color: #ff6000;
+    color: #ff6000;
+    display: inline-block;
+    position: relative;
+    border-bottom: 2px solid #e8e8e8;
+    cursor: pointer;
+    padding: 0 20px 12px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.dingdan-caozuo div{
+    cursor: pointer;
+    line-height: 20px;
+}
+.dingdan-caozuo div:hover{
+    color: orange;
+    text-decoration: underline;
+}
+.nav-type li{
+    text-align: center;
+}
+
+
+

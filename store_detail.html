@@ -1,0 +1,368 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>体验馆详情</title>
+<link href="css/base.css" type="text/css" rel="stylesheet">
+<link href="css/index.css" type="text/css" rel="stylesheet">
+<link href="css/goods_detail_css.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/goods_detail_js.js"></script>
+
+<script src="js/hmJs.js"></script>
+
+
+<script>
+
+$(document).ready(function(e) {
+    $('.topbtn').click(function(){
+		/*var speed=200;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;*/
+
+		if(scroll=="off") return;
+		$("html,body").animate({scrollTop: 0}, 500);
+		});
+	//收藏
+	collectbtn = false;
+	$('.collectBtn').click(function(){
+		if(collectbtn){
+			collectbtn = false;
+			$(this).attr({'src':'images/icon_09.png'});
+			}else{
+				collectbtn = true;
+				$(this).attr({'src':'images/icon_10.png'});
+				}
+
+		});
+	//搜索
+	$('.ch_pro li').click(function(){
+		$(this).addClass('chLi').siblings().removeClass('chLi');
+		});
+});
+</script>
+</head>
+
+<body>
+<div class="header">
+<!--topnav start-->
+<div class="topnav">
+	<div class="row">
+        <ul class="lf">
+            <a href="denglu.html">登录</a><span class="line">|</span><a href="zhuce.html">免费注册</a>
+        </ul>
+        <ul class="rf">
+            <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="my_index.html">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="gouwuche.html">购物车 <i class="iconcar"></i></a><sapn class="line">|</sapn>
+            <a>全国热线:<span class="color03">400-6653-666</span></a>
+        </ul>
+        <div class="clr"></div>
+    </div>
+</div>
+<!--topnav end-->
+
+<!--search start-->
+<div class="row">
+	<div class=" lf logo"><img src="images/gaoliuxutop.png"></div>
+	<div class="lf search">
+
+        <div class="ch_ul">
+        	<input class="search_txt" type="text" value="" placeholder="请输入关键词">
+            <a href="goods_list.html"><input class="search_sub" type="submit" value="搜 索" ></a>
+            <div class="clr"></div>
+        </div>
+        <ul class="ch_ul ch_classify">
+        	<li class="chft">沙发</li><li class="line">|</li>
+            <li>餐桌</li><li class="line">|</li>
+            <li>扇形椅</li><li class="line">|</li>
+            <li>屏风</li><li class="line">|</li>
+            <div class="clr"></div>
+        </ul>
+        <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+</div>
+<!--search enf-->
+<!--topad start-->
+<div class="navigation">
+<div class="row">
+	<div class="lf all_classify">
+    	全部商品分类
+        <div class="slider_bar">
+        	<li>
+            	<h4>卧房</h4><a href="#">穿衣镜</a><a href="#">衣帽架</a><a href="#">贵妃椅</a>
+            </li>
+            <li>
+            	<h4>客厅</h4><a href="#">电视柜</a><a href="#">沙发</a><a href="#">屏风</a>
+            </li>
+            <li>
+            	<h4>书房</h4><a href="#">书桌</a><a href="#">扇形椅</a><a href="#">画案</a>
+            </li>
+            <li>
+            	<h4>餐厅</h4><a href="#">西餐桌</a><a href="#">餐边柜</a><a href="#">酒柜</a>
+            </li>
+            <li>
+            	<h4>工艺品</h4><a href="#">茶具</a><a href="#">摆件</a><a href="#">名片夹</a>
+            </li>
+            <li>
+            	<h4>玉石翡翠</h4><a href="#">玉石</a><a href="#">翡翠</a>
+            </li>
+            <li>
+            	<h4>创意礼品</h4><a href="#">设计产品</a><a href="#">饰品</a>
+            </li>
+            <li>
+            	<h4>书法篆刻</h4><a href="#">楷书</a><a href="#">行书</a><a href="#">古籍文献</a>
+            </li>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <nav class="rf nav">
+    	<a href="index.html">首页</a>
+        <a href="tuangou.html">团购</a>
+        <a href="temai.html">特卖</a>
+        <a href="paimai.html">拍卖</a>         <a href="miaosha.html">秒杀</a>
+        <a class="hover" href="store.html">体验馆</a>
+
+        <div class="clr"></div>
+    </nav>
+    <div class="clr"></div>
+</div>
+</div>
+<!--topad start-->
+</div>
+
+<!--index content start-->
+<div class="row store_detail">
+    <div class="lf lfpic">
+    	<img class="maximg" src="images/storeimg_02.png">
+    </div>
+    <div class="lf rfword">
+    	<h2 class="h2-title">基本信息</h2>
+        <p class="store_name">深圳世界之窗旗舰店</p>
+        <div class="pd_20 clr"><label class="lf color02">服务热线:</label><div class="lf tel">020-88888888</div></div>
+        <div class="pd_20 clr"><label class="lf color02">营业时间:</label><div class="lf address"><p>10:00-18:00</p></div></div>
+        <div class="pd_20 clr"><label class="lf color02">服务宣言:</label><div class="lf address"><p>客户满意是我们的服务宗旨!</p></div></div>
+        <div class="pd_20 clr"><label class="lf color02">本馆地址:</label><div class="lf road"><p>广东广州市天河区天河路228号广东广州市天河区天河路228号</p></div></div>
+
+    </div>
+    <div class="clr"></div>
+</div>
+<div class="row detail_con map">
+    <h2 class="h2-title">地理位置</h2>
+  	<div class="lf mapclass">
+<!--引用百度地图API-->
+<style type="text/css">
+   .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+   .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+	.quad4{width:120px !important;height:120px !important;}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<!--百度地图容器-->
+<div style="width:400px;height:300px;" id="dituContent"></div>
+<script type="text/javascript">
+   //创建和初始化地图函数：
+   function initMap(){
+       createMap();//创建地图
+       setMapEvent();//设置地图事件
+       addMapControl();//向地图添加控件
+       addMarker();//向地图中添加marker
+   }
+
+   //创建地图函数：
+   function createMap(){
+       var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+       var point = new BMap.Point(115.949652,28.693851);//定义一个中心点坐标
+       map.centerAndZoom(point,18);//设定地图的中心点和坐标并将地图显示在地图容器中
+       window.map = map;//将map变量存储在全局
+   }
+
+   //地图事件设置函数：
+   function setMapEvent(){
+       map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+       map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+       map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+       map.enableKeyboard();//启用键盘上下左右键移动地图
+   }
+
+   //地图控件添加函数：
+   function addMapControl(){
+       //向地图中添加缩放控件
+var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+map.addControl(ctrl_nav);
+       //向地图中添加缩略图控件
+var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+map.addControl(ctrl_ove);
+       //向地图中添加比例尺控件
+var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+map.addControl(ctrl_sca);
+   }
+
+   //标注点数组
+   var markerArr = [{title:"网络",content:"电话：75",point:"115.950312|28.693447",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
+  ];
+   //创建marker
+   function addMarker(){
+       for(var i=0;i<markerArr.length;i++){
+           var json = markerArr[i];
+           var p0 = json.point.split("|")[0];
+           var p1 = json.point.split("|")[1];
+           var point = new BMap.Point(p0,p1);
+  var iconImg = createIcon(json.icon);
+           var marker = new BMap.Marker(point,{icon:iconImg});
+  var iw = createInfoWindow(i);
+  var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+  marker.setLabel(label);
+           map.addOverlay(marker);
+           label.setStyle({
+                       borderColor:"#808080",
+                       color:"#333",
+                       cursor:"pointer"
+           });
+
+  (function(){
+   var index = i;
+   var _iw = createInfoWindow(i);
+   var _marker = marker;
+   _marker.addEventListener("click",function(){
+       this.openInfoWindow(_iw);
+      });
+      _iw.addEventListener("open",function(){
+       _marker.getLabel().hide();
+      })
+      _iw.addEventListener("close",function(){
+       _marker.getLabel().show();
+      })
+   label.addEventListener("click",function(){
+       _marker.openInfoWindow(_iw);
+      })
+   if(!!json.isOpen){
+    label.hide();
+    _marker.openInfoWindow(_iw);
+   }
+  })()
+       }
+   }
+   //创建InfoWindow
+   function createInfoWindow(i){
+       var json = markerArr[i];
+       var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+       return iw;
+   }
+   //创建一个Icon
+   function createIcon(json){
+       var icon = new BMap.Icon("http://map.baidu.com/image/us_cursor.gif", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+       return icon;
+   }
+
+   initMap();//创建和初始化地图
+</script>
+<!--百度地图容器-->
+    </div>
+    <div class="lf roadclass">
+    	<h2>交通线路:</h2>
+        <p>地铁3号线/5号线</p>
+        <p>公交B1路/B2路/B22路/B25路/B3路/B5路/B6路/B9路等</p>
+    </div>
+    <div class="clr"></div>
+</div>
+<div class="row tg_list">
+	<h2 class="h2-title">本店商品</h2>
+    <ul class="detail_pro">
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+    <a href="tuangou_detail.html">
+    	<div class="list-pic">
+        	<img class="maximg" src="images/pic_5.jpg">
+        </div>
+    	<div class="list-word">
+            <p class="price"><i class="color03">￥</i>210</p>
+            <h2 class="title">时尚手提包时尚手提包时尚手提包时尚手提包时尚手提包</h2>
+        </div>
+    </a>
+	<div class="clr"></div>
+    </ul>
+</div>
+<!--index content end-->
+
+<!--index service start-->
+<div class="nav-footer">     <ul class="row">         <li>             <div></div>             <strong>                 <a href="">正品保障</a>             </strong>             <p>正品保障，提供发票</p>         </li>         <li>             <div></div>             <strong>                 <a href="">急速物流</a>             </strong>             <p>急速物流，急速送达</p>         </li>         <li>             <div></div>             <strong>                 <a href="">无忧售后</a>             </strong>             <p>七天无理由退货</p>         </li>         <li>             <div></div>             <strong>                 <a href="">特设服务</a>             </strong>             <p>私人定制套餐</p>         </li>         <li>             <div></div>             <strong>                 <a href="">帮助中心</a>             </strong>             <p>您的购物中心</p>         </li>     </ul> </div>  <div class="help">     <div class="row">         <ul class="footer2">             <li  class="tel">                 <p class="working"><img src="images/icon14.png"> 工作日 9:00~18:00</p>                 <p class="tels">400-6653-666</p>             </li>             <li>                 <h4>新手指南</h4><a href="zhuce.html">注册新用户</a><a href="#">家具订购流程</a><a href="#">支付方式</a><a href="#">了解产品工艺</a>             </li>             <li>                 <h4>购物保障</h4><a href="#">正品保证</a><a href="#">注册协议</a><a href="#">隐私保护</a><a href="#">免责申明</a><a href="#">商品保障</a>             </li>             <li>                 <h4>配送安装</h4><a href="#">配送安装</a><a href="#">收货指南</a><a href="#">包装说明</a>             </li>             <li>                 <h4>售后服务</h4><a href="#">30天退换货说明</a><a href="#">退款说明</a><a href="#">维修补件说明</a><a href="#">家具保养说明</a><a href="#">假一赔三</a>             </li>             <li class="code">                 <h4>微信公众号</h4>                 <p><img src="images/gaoliuxuerweima.jpg"></p>             </li>         </ul>          <div class="clr"></div>     </div> </div>
+
+<!--footer start-->
+<div class="footer">
+	<div class="row">
+    	&copy;  2016 广州鼎瀛计算机科技有限公司
+    </div>
+</div>
+<!--footer end-->
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>团购详情</title>
+<link href="css/base.css" type="text/css" rel="stylesheet">
+<link href="css/index.css" type="text/css" rel="stylesheet">
+<link href="css/goods_detail_css.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/goods_detail_js.js"></script>
+
+<script src="js/hmJs.js"></script>
+
+
+<script>
+//加减
+$(function(){
+	$(".add").click(function(){
+		var t=$(this).parent().find('input[class*=text_box]');
+		t.val(parseInt(t.val())+1)
+		setTotal();
+	});
+	$(".min").click(function(){
+		var t=$(this).parent().find('input[class*=text_box]');
+		t.val(parseInt(t.val())-1)
+		if(parseInt(t.val())<0){
+		t.val(0);
+	}
+	setTotal();
+	});
+	function setTotal(){
+		var s=0;
+		$("#tab span").each(function(){
+		s+=parseInt($(this).find('input[class*=text_box]').val())*parseFloat($('.xddz_01').find('span[class*=price]').text());
+		});
+		$("#total").html(s.toFixed(2));
+	}
+	setTotal();
+
+});
+$(document).ready(function(e) {
+    $('.topbtn').click(function(){
+		/*var speed=200;//滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;*/
+
+		if(scroll=="off") return;
+		$("html,body").animate({scrollTop: 0}, 500);
+		});
+	//收藏
+	collectbtn = false;
+	$('.collectBtn').click(function(){
+		if(collectbtn){
+			collectbtn = false;
+			$(this).attr({'src':'images/icon_09.png'});
+			}else{
+				collectbtn = true;
+				$(this).attr({'src':'images/icon_10.png'});
+				}
+
+		});
+	//搜索
+	$('.ch_pro li').click(function(){
+		$(this).addClass('chLi').siblings().removeClass('chLi');
+		});
+});
+</script>
+ <script>
+        $(function(){
+
+            $("#tab2").click(function(){
+                $("#tab2").attr("class","h2-title");
+                $("#tab1").attr("class","tab_tittle");
+                
+                $("#con1").css('display','none');
+                $("#con2").css('display','block');
+                
+            });
+            $("#tab1").click(function(){
+                $("#tab1").attr("class","h2-title");
+                $("#tab2").attr("class","tab_tittle");
+                $("#con2").css('display','none');
+                $("#con1").css('display','block');
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="header">
+<!--topnav start-->
+<div class="topnav">
+	<div class="row">
+        <ul class="lf">
+            <a href="denglu.html">登录</a><span class="line">|</span><a href="zhuce.html">免费注册</a>
+        </ul>
+        <ul class="rf">
+            <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="my_index.html">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="gouwuche.html">购物车 <i class="iconcar"></i></a><sapn class="line">|</sapn>
+            <a>全国热线:<span class="color03">400-6653-666</span></a>
+        </ul>
+        <div class="clr"></div>
+    </div>
+</div>
+<!--topnav end-->
+
+<!--search start-->
+<div class="row">
+	<div class=" lf logo"><img src="images/gaoliuxutop.png"></div>
+	<div class="lf search">
+
+        <div class="ch_ul">
+        	<input class="search_txt" type="text" value="" placeholder="请输入关键词">
+            <a href="goods_list.html"><input class="search_sub" type="submit" value="搜 索" ></a>
+            <div class="clr"></div>
+        </div>
+        <ul class="ch_ul ch_classify">
+        	<li class="chft">沙发</li><li class="line">|</li>
+            <li>餐桌</li><li class="line">|</li>
+            <li>扇形椅</li><li class="line">|</li>
+            <li>屏风</li><li class="line">|</li>
+            <div class="clr"></div>
+        </ul>
+        <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+</div>
+<!--search enf-->
+<!--topad start-->
+<div class="navigation">
+<div class="row">
+	<div class="lf all_classify">
+    	全部商品分类
+        <div class="slider_bar">
+        	<li>
+            	<h4>卧房</h4><a href="#">穿衣镜</a><a href="#">衣帽架</a><a href="#">贵妃椅</a>
+            </li>
+            <li>
+            	<h4>客厅</h4><a href="#">电视柜</a><a href="#">沙发</a><a href="#">屏风</a>
+            </li>
+            <li>
+            	<h4>书房</h4><a href="#">书桌</a><a href="#">扇形椅</a><a href="#">画案</a>
+            </li>
+            <li>
+            	<h4>餐厅</h4><a href="#">西餐桌</a><a href="#">餐边柜</a><a href="#">酒柜</a>
+            </li>
+            <li>
+            	<h4>工艺品</h4><a href="#">茶具</a><a href="#">摆件</a><a href="#">名片夹</a>
+            </li>
+            <li>
+            	<h4>玉石翡翠</h4><a href="#">玉石</a><a href="#">翡翠</a>
+            </li>
+            <li>
+            	<h4>创意礼品</h4><a href="#">设计产品</a><a href="#">饰品</a>
+            </li>
+            <li>
+            	<h4>书法篆刻</h4><a href="#">楷书</a><a href="#">行书</a><a href="#">古籍文献</a>
+            </li>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <nav class="rf nav">
+    	<a href="index.html">首页</a>
+        <a class="hover" href="tuangou.html">团购</a>
+        <a href="temai.html">特卖</a>
+        <a href="paimai.html">拍卖</a>         <a href="miaosha.html">秒杀</a>         <a href="shangchen.html">在线商城</a>         <a href="store.html">体验馆</a>
+
+        <div class="clr"></div>
+    </nav>
+    <div class="clr"></div>
+</div>
+</div>
+<!--topad start-->
+</div>
+
+<!--index content start-->
+<div class="row detail_con">
+    <div class="lf lfpic">
+    	<div class="preview">
+            <div id="vertical" class="bigImg">
+                <img src="images/pic_6.jpg" width="auto" height="auto" alt="" id="midimg" />
+                <div style="display:none;" id="winSelector"></div>
+            </div><!--bigImg end-->
+            <div class="smallImg">
+                <div id="imageMenu">
+                    <ul>
+                        <li id="onlickImg"><img src="images/pic_7.jpg" /></li>
+                        <li><img src="images/pic_6.jpg" /></li>
+                        <li><img src="images/pic_7.jpg" /></li>
+                        <li><img src="images/pic_6.jpg" /></li>
+                        <li><img src="images/pic_7.jpg" /></li>
+                    </ul>
+                </div>
+            </div><!--smallImg end-->
+            <div id="bigView" style="display:none;"><img width="800" height="800" alt="" src="" /></div>
+        </div>
+        <!--preview end-->
+    </div>
+    <div class="lf rfword">
+    	<h2 class="title">【超市】清风（APP）抽纸 柔韧2层200抽软抽*20包纸巾（新老包装交替发货）（整箱售卖）</h2>
+        <div class="price">
+        	<p class="price-num"><i>￥</i>210<s>￥420</s></p>
+        	<p class="times-num">剩余时间1天2时3分23秒  团购:10件</p>
+        </div>
+        <div class="buy_num">
+        	<span class="color02 lf">数量： </span>
+            <span  class="lf pro_num">
+            <input class="min" type="button" value="-">
+            <input class="text_box" type="text" value="1">
+            <input class="add" type="button" value="+">
+            </span>
+            <span class="color02 lf">库存20件</span>
+        </div>
+        <div class="clr buy_num">
+            <span class="color02 lf">配送至： </span>
+            <span  class="lf dt_address">
+            广东广州
+            </span>
+        </div>
+        <div class="clr buy_num">
+            <span class="color02">运费： </span>
+            ￥20.00
+        </div>
+        <div class="clr tg_explain">
+        	<a class="btnClass" href="tijiaodingdan.html">立即购买</a>
+        	<a class="btnClass joinCar" href="#"><img src="images/icon_08.png"> 加入购物车</a>
+            <a><img class="collectBtn" src="images/icon_09.png"></a>
+        </div>
+    </div>
+    <div class="rf tuijian" >
+    	 <div class="track-tit">
+              <h3>看了又看</h3>
+              <span></span>
+         </div>
+    	<ul>
+    		<li>
+    			<a href="">
+    				<img src="images/pic_3.jpg"  />
+    				<p>这是描述这是描述</p>
+    			</a>
+    		</li>
+    		<li>
+    			<a href="">
+    				<img src="images/pic_4.jpg"  />
+    				<p>这是描述这是描述</p>
+    			</a>
+    		</li>
+    	</ul>
+    </div>
+    <div class="clr"></div>
+</div>
+<div class="row detail_con">
+    <h2 class="h2-title">商品详情</h2>
+    <ul class="pro-rate">
+    	<li>商品名称: 时尚手提包</li>
+    	<li>商品材质: 皮革</li>
+        <li>商品编号: 123456</li>
+        <li>商品重量: 200g</li>
+        <div class="clr"></div>
+    </ul>
+    <ul class="pro-img">
+    	<img src="images/pic_6.jpg"><img src="images/pic_7.jpg">
+    </ul>
+    
+</div>
+
+
+<!--index content end-->
+
+<!--index service start-->
+
+  <div class="nav-footer"> 
+   <ul class="row"> 
+    <li> 
+     <div></div> <strong> <a href="">正品保障</a> </strong> <p>正品保障，提供发票</p> </li> 
+    <li> 
+     <div></div> <strong> <a href="">急速物流</a> </strong> <p>急速物流，急速送达</p> </li> 
+    <li> 
+     <div></div> <strong> <a href="">无忧售后</a> </strong> <p>七天无理由退货</p> </li> 
+    <li> 
+     <div></div> <strong> <a href="">特设服务</a> </strong> <p>私人定制套餐</p> </li> 
+    <li> 
+     <div></div> <strong> <a href="">帮助中心</a> </strong> <p>您的购物中心</p> </li> 
+   </ul> 
+  </div> 
+  <div class="help"> 
+   <div class="row"> 
+    <ul class="footer2"> 
+     <li class="tel"> <p class="working"><img src="images/icon14.png" /> 工作日 9:00~18:00</p> <p class="tels">400-6653-666</p> </li> 
+     <li> <h4>新手指南</h4><a href="zhuce.html">注册新用户</a><a href="#">家具订购流程</a><a href="#">支付方式</a><a href="#">了解产品工艺</a> </li> 
+     <li> <h4>购物保障</h4><a href="#">正品保证</a><a href="#">注册协议</a><a href="#">隐私保护</a><a href="#">免责申明</a><a href="#">商品保障</a> </li> 
+     <li> <h4>配送安装</h4><a href="#">配送安装</a><a href="#">收货指南</a><a href="#">包装说明</a> </li> 
+     <li> <h4>售后服务</h4><a href="#">30天退换货说明</a><a href="#">退款说明</a><a href="#">维修补件说明</a><a href="#">家具保养说明</a><a href="#">假一赔三</a> </li> 
+     <li class="code"> <h4>微信公众号</h4> <p><img src="images/gaoliuxuerweima.jpg" /></p> </li> 
+    </ul> 
+    <div class="clr"></div> 
+   </div> 
+  </div> 
+
+<!--footer start-->
+<div class="footer">
+	<div class="row">
+    	&copy;  2016 广州鼎瀛计算机科技有限公司
+    </div>
+</div>
+<!--footer end-->
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>

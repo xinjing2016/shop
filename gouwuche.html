@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的购物车</title>
+    <link href="css/base.css" type="text/css" rel="stylesheet">
+    <link href="css/gouwuche.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <style>
+        /*.dingdan-detail{*/
+            /*border: 1px solid rgb(218,243,255);*/
+        /*}*/
+        /*.dingdan-detail:hover{*/
+            /*border:1px solid rgb(174,216,255);*/
+        /*}*/
+        /*.dingdan-d-top{*/
+            /*height: 42px;*/
+            /*line-height: 42px;*/
+            /*!*padding: 10px 0;*!*/
+            /*background-color: rgb(234,248,255);*/
+        /*}*/
+        /*.dingdan-data{*/
+            /*cursor: default;*/
+            /*font-weight: bold;*/
+            /*margin-right: 10px;*/
+        /*}*/
+        /*.dingdan-show{*/
+            /*height: 110px;*/
+            /*!*padding: 10px 0;*!*/
+            /*overflow: hidden;*/
+        /*}*/
+        /*.dingdan-show>div{*/
+            /*float: left;*/
+            /*width: 149px;*/
+            /*height: 110px;*/
+            /*padding: 10px 0;*/
+            /*text-align: center;*/
+            /*-webkit-box-sizing: border-box;*/
+            /*-moz-box-sizing: border-box;*/
+            /*box-sizing: border-box;*/
+            /*border-right:1px solid rgb(218,243,255);*/
+        /*}*/
+
+        /*.dingdan-show  .dingdan-pictrue{*/
+            /*float: left;*/
+            /*width: 310px;*/
+            /*height: 110px;*/
+            /*margin-left: 20px;*/
+            /*overflow: hidden;*/
+        /*}*/
+        /*.dingdan-pictrue img{*/
+            /*width: 80px;*/
+            /*height: 80px;*/
+            /*margin-right: 5px;*/
+            /*float: left;*/
+        /*}*/
+        /*.dingdan-pictrue span{*/
+            /*float: left;*/
+            /*width: 223px;*/
+            /*text-align: left;*/
+            /*vertical-align: top;*/
+        /*}*/
+        /*.dingdan-show .dingdan-caozuo{*/
+            /*border-right: 0px solid #73bade;*/
+        /*}*/
+        /*.dingdan-caozuo button{*/
+            /*color: #fff;*/
+            /*border: 1px solid #66b6ff;*/
+            /*padding:5px 12px;*/
+            /*border-radius: 3px;*/
+            /*font-size: 14px;*/
+            /*font-weight: bold;*/
+            /*background-color: #66b6ff;*/
+        /*}*/
+        /*.top-button{*/
+            /*float: left;*/
+            /*margin: 10px 0;*/
+            /*margin-right: 5px;*/
+            /*margin-left: 20px;*/
+
+        /*}*/
+        /*.button-text{*/
+            /*float: left;*/
+        /*}*/
+        /*.nav-type .goodsnew{*/
+            /*width: 504px;*/
+        /*}*/
+        /*.nav-type li{*/
+            /*width: 165px;*/
+            /*!*background-color: #00aaee;*!*/
+        /*}*/
+        /*.row{*/
+            /*overflow: hidden;*/
+        /*}*/
+        /*.row .dianpu{*/
+           /*line-height: 30px;*/
+        /*}*/
+        /*.dingdan-show .dingdan-pictrue{*/
+            /*width: 378px;*/
+        /*}*/
+        /*.dingdan-show>div{*/
+            /*width: 165px;*/
+        /*}*/
+        .jiesuan{
+            width: 1226px;
+            height: 50px;
+            line-height: 50px;
+            position: fixed;
+            bottom: 0;
+            background-color: rgb(229,229,229);
+
+        }
+        .jiesuan .jiesuan_button{
+            float: left;
+            margin-top: 20px;
+            margin-right: 5px;
+            margin-left: 20px;
+        }
+        /*.jiesuan ul{*/
+            /*width: 1226px;*/
+            /*height: 50px;*/
+        /*}*/
+        .jiesuan>ul li {
+            margin-right: 30px;
+            font-size: 14px;
+        }
+        .jiesuan>ul li:hover{
+            color: rgb(245,102,0);
+            text-decoration: underline;
+        }
+        .jiesuan_right{
+            float: right;
+        }
+        .jiesuan_right>div{
+            float: left;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .jiesuan_right .footer_button{
+            float: left;
+            background: #B0B0B0;
+            color: #fff;
+            border-left: 1px solid #e7e7e7;
+            width: 119px;
+            cursor: not-allowed;
+            text-decoration: none;
+            text-align: center;
+            margin-right: 0px;
+            font-size: 22px;
+            /*font-weight: bold;*/
+        }
+        .jiesuan_right .big_orange{
+            font-size: 22px;
+            font-weight: bold;
+            color: rgb(245,102,0);
+        }
+        .jiesuan_right .orange_white{
+            color: white;
+            background-color: rgb(245,102,0);
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function(){
+            var footer_button = $(".footer_button");
+            var oButtons = $("input");
+            console.log(oButtons);
+            for(i=0;i<oButtons.length;i++){
+                if(oButtons[i].check==true){
+                    footer_button.setAttribute('class','orange_white');
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+
+<!--topnav start-->
+<div class="topnav">
+    <div class="row">
+        <ul class="lf">
+            <a href="denglu.html">登录</a><span class="line">|</span><a href="zhuce.html">免费注册</a>
+        </ul>
+        <ul class="rf">
+            <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="my_index.html">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
+            <a href="gouwuche.html">购物车 <i class="iconcar"></i></a><sapn class="line">|</sapn>
+            <a>全国热线:<span class="color03">400-6653-666</span></a>
+        </ul>
+        <div class="clr"></div>
+    </div>
+</div>
+
+
+<div class="row">
+    <ul class="nav-dingdan">
+        <li>全部商品</li>
+    </ul>
+</div>
+<div class="row">
+
+    <ul class="nav-type">
+        <input class="top-button" type="checkbox"><span class="button-text">全选</span>
+        <li class="goodsnew">商品信息</li>
+        <li class="price">单价</li>
+        <li>数量</li>
+        <li>金额</li>
+        <li >操作</li>
+    </ul>
+
+</div>
+
+<div class="row">
+    <input class="top-button" type="checkbox">
+    <span class="dianpu">店铺：水果园</span>
+</div>
+<div class="row">
+    <div class="dingdan-detail">
+        <!--<div class="dingdan-d-top">-->
+            <!--<input class="top-button" type="checkbox">-->
+            <!--<span class="dingdan-data">2017-4-15</span>-->
+            <!--<span>订单号：13213245</span>-->
+        <!--</div>-->
+        <div class="dingdan-show">
+            <div class="dingdan-pictrue">
+                <input class="top-button" type="checkbox">
+                <img src="images/pic_2.jpg" alt="">
+                <span>发的离开时间离开第三方拉伸了放假啊会计法来看拉克丝看了了</span>
+            </div>
+            <div class="dingdan-price">
+                颜色：灰
+                <div>尺码：L</div>
+            </div>
+            <div class="dingdan-munber">
+                ￥135
+            </div>
+            <div class="dingdan-tuihuo">
+                <!--<button>-</button>-->
+                1
+                <!--<button>+</button>-->
+            </div>
+            <div class="dingdan-money">
+                ￥355
+                <div>(含运费：￥0.00)</div>
+            </div>
+            <div class="dingdan-caozuo">
+                <div>删除</div>
+                <div>移入收藏夹</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="jiesuan">
+        <ul>
+            <input class="jiesuan_button" type="checkbox">
+            <li>全选</li>
+            <li>删除</li>
+            <li>清除失效宝贝</li>
+            <li>移入收藏夹</li>
+            <li>分享</li>
+        </ul>
+        <div class="jiesuan_right">
+            <div>
+                <span>已选商品</span>
+                <span class="big_orange">0</span>
+                <span>件</span>
+            </div>
+            <div>
+                <span>合计（不含运费）：</span>
+                <span class="big_orange">0.00</span>
+            </div>
+            <div class="footer_button">结算</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

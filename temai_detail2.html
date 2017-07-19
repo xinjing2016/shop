@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>特卖详情</title>
+    <link href="css/base.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <link href="css/goods_detail_css.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/goods_detail_js.js"></script>
+
+    <script src="js/hmJs.js"></script>
+
+
+    <script>
+        //加减
+        $(function(){
+            $(".add").click(function(){
+                var t=$(this).parent().find('input[class*=text_box]');
+                t.val(parseInt(t.val())+1)
+                setTotal();
+            });
+            $(".min").click(function(){
+                var t=$(this).parent().find('input[class*=text_box]');
+                t.val(parseInt(t.val())-1)
+                if(parseInt(t.val())<0){
+                    t.val(0);
+                }
+                setTotal();
+            });
+            function setTotal(){
+                var s=0;
+                $("#tab span").each(function(){
+                    s+=parseInt($(this).find('input[class*=text_box]').val())*parseFloat($('.xddz_01').find('span[class*=price]').text());
+                });
+                $("#total").html(s.toFixed(2));
+            }
+            setTotal();
+
+        });
+        $(document).ready(function(e) {
+            $('.topbtn').click(function(){
+                /*var speed=200;//滑动的速度
+                 $('body,html').animate({ scrollTop: 0 }, speed);
+                 return false;*/
+
+                if(scroll=="off") return;
+                $("html,body").animate({scrollTop: 0}, 500);
+            });
+            //收藏
+            collectbtn = false;
+            $('.collectBtn').click(function(){
+                if(collectbtn){
+                    collectbtn = false;
+                    $(this).attr({'src':'images/icon_09.png'});
+                }else{
+                    collectbtn = true;
+                    $(this).attr({'src':'images/icon_10.png'});
+                }
+
+            });
+            //搜索
+            $('.ch_pro li').click(function(){
+                $(this).addClass('chLi').siblings().removeClass('chLi');
+            });
+        });
+        var num1 = 4;
+        var num2 = 59;
+        var num3 = 59;
+        setInterval(function(){
+            num3--;
+            if(num3<0){
+                num3 = 59;
+                num2 --;
+            }
+            if(num2<0){
+                num2 = 59;
+                num1 --;
+            }
+            if(num1<0){
+                num1 = 4;
+                num2 = 59;
+                num3= 59;
+            }
+            $("#second").text(num3);
+            $("#minute").text(num2);
+            $("#hour").text("0"+num1);
+            if(num3<10){
+                $("#second").text("0"+num3);
+            }
+            if(num2<10){
+                $("#minute").text("0"+num2);
+            }
+            if(num1<10){
+                $("#hour").text("0"+num1);
+            }
+        },1000);
+    </script>
+    <style>
+        .shangjia_left{
+            width: 210px;
+            min-height: 500px;
+            margin-right: 10px;
+            float: left;
+            border:1px solid #ccc;
+        }
+        .shangpin_right{
+            width: 1000px;
+            overflow: hidden;
+            /*border:1px solid #ccc;*/
+            float: left;
+        }
+        .shangjia_tittle{
+            text-align: center;
+            /*font-weight: bold;*/
+            font-size: 14px;
+            height: 42px;
+            line-height: 42px;
+            border-bottom: 1px solid #ccc;
+            background-color: rgb(250,250,250);
+        }
+        .tab{
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-bottom: 1px solid orange;
+            /*border-bottom: 0px solid black;*/
+            background-color: rgb(247,247,247);
+        }
+        #tab1{
+            float: left;
+
+        }
+        #tab2{
+            float: left;
+        }
+        .tab_tittle{
+            /*background: orange;*/
+            color: black;
+            font-size: 14px;
+            padding: 0 30px;
+            line-height: 40px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .tab_tittle:hover{
+            color: orange;
+        }
+        .con{
+            overflow: hidden;
+        }
+        .top_back{
+            background: url(//static.360buyimg.com/item/default/1.0.30/components/prom/i/seckilling.png) no-repeat #e84540;
+            font-size: 16px;
+            color: white;
+            line-height: 30px;
+            padding: 0px 5px 0px 8px;
+        }
+        .top_back_right{
+            float: right;
+            color: white;
+
+        }
+        .top_back_right *{
+            float: left;
+        }
+        .daojishi {
+            /* float: left; */
+            /*display: inline-block;*/
+            width: 20px;
+            height: 20px;
+            background-color: rgb(68,59,59);
+            line-height: 30px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            text-align: center;
+            vertical-align: middle;
+            margin:0px 3px;
+            margin-top: 5px;
+            line-height: 20px;
+
+        }
+    </style>
+    <script>
+        $(function(){
+
+            $("#tab2").click(function(){
+                $("#tab2").attr("class","h2-title");
+                $("#tab1").attr("class","tab_tittle");
+//                $("#con1")[0].style.display="none";
+                $("#con1").css('display','none');
+                $("#con2").css('display','block');
+//                $("#con2")[0].style.display="block";
+            });
+            $("#tab1").click(function(){
+                $("#tab1").attr("class","h2-title");
+                $("#tab2").attr("class","tab_tittle");
+                $("#con2").css('display','none');
+                $("#con1").css('display','block');
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="header">
+    <!--topnav start-->
+    <div class="topnav">
+        <div class="row">
+            <ul class="lf">
+                <a href="denglu.html">登录</a><span class="line">|</span><a href="zhuce.html">免费注册</a>
+            </ul>
+            <ul class="rf">
+                <a href="wodediingdan.html">我的订单 <i class="iconfont"></i></a><span class="line">|</span>
+                <a href="my_index.html">我的信息 <i class="iconfont"></i></a><span class="line">|</span>
+                <a href="gouwuche.html">购物车 <i class="iconcar"></i></a><sapn class="line">|</sapn>
+                <a>全国热线:<span class="color03">400-6653-666</span></a>
+            </ul>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <!--topnav end-->
+
+    <!--search start-->
+    <div class="row">
+        <div class=" lf logo"><img src="images/gaoliuxutop.png"></div>
+        <div class="lf search">
+
+            <div class="ch_ul">
+                <input class="search_txt" type="text" value="" placeholder="请输入关键词">
+                <a href="goods_list.html"><input class="search_sub" type="submit" value="搜 索" ></a>
+                <div class="clr"></div>
+            </div>
+            <ul class="ch_ul ch_classify">
+                <li class="chft">沙发</li><li class="line">|</li>
+                <li>餐桌</li><li class="line">|</li>
+                <li>扇形椅</li><li class="line">|</li>
+                <li>屏风</li><li class="line">|</li>
+                <div class="clr"></div>
+            </ul>
+            <div class="clr"></div>
+        </div>
+        <div class="clr"></div>
+    </div>
+    <!--search enf-->
+    <!--topad start-->
+    <div class="navigation">
+        <div class="row">
+            <div class="lf all_classify">
+                全部商品分类
+                <div class="slider_bar">
+                    <li>
+                        <h4>卧房</h4><a href="#">穿衣镜</a><a href="#">衣帽架</a><a href="#">贵妃椅</a>
+                    </li>
+                    <li>
+                        <h4>客厅</h4><a href="#">电视柜</a><a href="#">沙发</a><a href="#">屏风</a>
+                    </li>
+                    <li>
+                        <h4>书房</h4><a href="#">书桌</a><a href="#">扇形椅</a><a href="#">画案</a>
+                    </li>
+                    <li>
+                        <h4>餐厅</h4><a href="#">西餐桌</a><a href="#">餐边柜</a><a href="#">酒柜</a>
+                    </li>
+                    <li>
+                        <h4>工艺品</h4><a href="#">茶具</a><a href="#">摆件</a><a href="#">名片夹</a>
+                    </li>
+                    <li>
+                        <h4>玉石翡翠</h4><a href="#">玉石</a><a href="#">翡翠</a>
+                    </li>
+                    <li>
+                        <h4>创意礼品</h4><a href="#">设计产品</a><a href="#">饰品</a>
+                    </li>
+                    <li>
+                        <h4>书法篆刻</h4><a href="#">楷书</a><a href="#">行书</a><a href="#">古籍文献</a>
+                    </li>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <nav class="rf nav">
+                <a href="index.html">首页</a>
+                <a href="tuangou.html">团购</a>
+                <a class="hover" href="temai.html">特卖</a>
+                <a href="paimai.html">拍卖</a>         <a href="miaosha.html">秒杀</a>         <a href="shangchen.html">在线商城</a>         <a href="store.html">体验馆</a>
+
+                <div class="clr"></div>
+            </nav>
+            <div class="clr"></div>
+        </div>
+    </div>
+    <!--topad start-->
+</div>
+
+<!--index content start-->
+<div class="row detail_con">
+    <div class="lf lfpic">
+        <div class="preview">
+            <div id="vertical" class="bigImg">
+                <img src="images/pic_6.jpg" width="auto" height="auto" alt="" id="midimg" />
+                <div style="display:none;" id="winSelector"></div>
+            </div><!--bigImg end-->
+            <div class="smallImg">
+                <div id="imageMenu">
+                    <ul>
+                        <li id="onlickImg"><img src="images/pic_7.jpg" /></li>
+                        <li><img src="images/pic_6.jpg" /></li>
+                        <li><img src="images/pic_7.jpg" /></li>
+                        <li><img src="images/pic_6.jpg" /></li>
+                        <li><img src="images/pic_7.jpg" /></li>
+                    </ul>
+                </div>
+            </div><!--smallImg end-->
+            <div id="bigView" style="display:none;"><img width="800" height="800" alt="" src="" /></div>
+        </div>
+        <!--preview end-->
+    </div>
+    <div class="lf rfword">
+        <h2 class="title">时尚手提包</h2>
+        <div class="top_back">
+            <span>秒杀</span>
+            <div class="top_back_right">
+                <span>距离结束</span>
+                <span class="daojishi" id="hour">04</span>
+                <span>:</span>
+                <span class="daojishi" id="minute">59</span>
+                <span>:</span>
+                <span class="daojishi" id="second">59</span>
+            </div>
+        </div>
+        <div class="price">
+            <p class="price-num"><i>秒杀价：</i><i style="color: #e84540">￥</i>210<s>￥420</s></p>
+            <p class="times-num">  限购:10件</p>
+        </div>
+        <div class="buy_num">
+            <span class="color02 lf">数量： </span>
+            <span  class="lf pro_num">
+            <input class="min" type="button" value="-">
+            <input class="text_box" type="text" value="1">
+            <input class="add" type="button" value="+">
+            </span>
+            <span class="color02 lf">库存20件</span>
+        </div>
+        <div class="clr buy_num">
+            <span class="color02 lf">配送至： </span>
+            <span  class="lf dt_address">
+            广东广州
+            </span>
+        </div>
+        <div class="clr buy_num">
+            <span class="color02">运费： </span>
+            ￥20.00
+        </div>
+        <div class="clr tg_explain">
+            <a class="btnClass" href="#">立即购买</a>
+            <a class="btnClass joinCar" href="#"><img src="images/icon_08.png"> <span>加入购物车</span></a>
+            <a><img class="collectBtn" src="images/icon_09.png"></a>
+        </div>
+    </div>
+    <div class="clr"></div>
+</div>
+<div class="row detail_con">
+    <div class="shangjia_left">
+        <div class="shangjia_tittle">高流圩自营</div>
+    </div>
+    <div class="shangpin_right">
+        <div class="tab">
+            <div id="tab1" class="h2-title">商品详情</div>
+            <div id="tab2" class="tab_tittle">累计评价 213</div>
+        </div>
+
+        <div class="con">
+            <div id="con1">
+                <ul class="pro-rate" style="display: block">
+                    <li>商品名称: 时尚手提包</li>
+                    <li>商品材质: 皮革</li>
+                    <li>商品编号: 123456</li>
+                    <li>商品重量: 200g</li>
+                    <div class="clr"></div>
+                </ul>
+                <ul class="pro-img">
+                    <img src="images/pic_6.jpg"><img src="images/pic_7.jpg">
+                </ul>
+            </div>
+            <div id="con2" style="display: none">
+                累计评价
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<!--index content end-->
+
+<!--index service start-->
+<div class="nav-footer">     <ul class="row">         <li>             <div></div>             <strong>                 <a href="">正品保障</a>             </strong>             <p>正品保障，提供发票</p>         </li>         <li>             <div></div>             <strong>                 <a href="">急速物流</a>             </strong>             <p>急速物流，急速送达</p>         </li>         <li>             <div></div>             <strong>                 <a href="">无忧售后</a>             </strong>             <p>七天无理由退货</p>         </li>         <li>             <div></div>             <strong>                 <a href="">特设服务</a>             </strong>             <p>私人定制套餐</p>         </li>         <li>             <div></div>             <strong>                 <a href="">帮助中心</a>             </strong>             <p>您的购物中心</p>         </li>     </ul> </div>  <div class="help">     <div class="row">         <ul class="footer2">             <li  class="tel">                 <p class="working"><img src="images/icon14.png"> 工作日 9:00~18:00</p>                 <p class="tels">400-6653-666</p>             </li>             <li>                 <h4>新手指南</h4><a href="zhuce.html">注册新用户</a><a href="#">家具订购流程</a><a href="#">支付方式</a><a href="#">了解产品工艺</a>             </li>             <li>                 <h4>购物保障</h4><a href="#">正品保证</a><a href="#">注册协议</a><a href="#">隐私保护</a><a href="#">免责申明</a><a href="#">商品保障</a>             </li>             <li>                 <h4>配送安装</h4><a href="#">配送安装</a><a href="#">收货指南</a><a href="#">包装说明</a>             </li>             <li>                 <h4>售后服务</h4><a href="#">30天退换货说明</a><a href="#">退款说明</a><a href="#">维修补件说明</a><a href="#">家具保养说明</a><a href="#">假一赔三</a>             </li>             <li class="code">                 <h4>微信公众号</h4>                 <p><img src="images/gaoliuxuerweima.jpg"></p>             </li>         </ul>          <div class="clr"></div>     </div> </div>
+
+<!--footer start-->
+<div class="footer">
+    <div class="row">
+        &copy;  2016 广州鼎瀛计算机科技有限公司
+    </div>
+</div>
+<!--footer end-->
+
+
+
+</body>
+</html>
+
+
+</body>
+</html>

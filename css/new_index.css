@@ -1,0 +1,309 @@
+.guanggao{
+    height: 80px;
+    /*margin-top: 15px;*/
+    /*border:1px solid #ccc;*/
+    background-color: #f5f5f5;
+    background-image: url("https://img.alicdn.com/simba/img/TB1UU3KPVXXXXcaXpXXSutbFXXX.jpg");
+}
+.pinpai_logo{
+    width: 122px;
+    height: 100px;
+    float: left;
+    border: 1px solid #dddddd;
+    border-left: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    background-color: white;
+}
+/*.pinpai_logo:hover{*/
+/*opacity: 0.5;*/
+/*}*/
+.pinpai{
+    overflow: hidden;
+    background-color: rgb(245,245,245);
+    padding:10px 0px;
+}
+.border_left{
+    border-left: 1px solid #dddddd;
+}
+.no_border_top{
+    border-top:0px;
+}
+.pinpai_row{
+    width: 1224px;
+    margin:0 auto;
+}
+.logo_black{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.8);
+    transition: all .3s ease-out;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.logo_black:hover{
+    opacity:0.5;
+    filter: alpha(opacity=50);
+}
+.logo_black a{
+    display: block;
+    color: #fff;
+    width: 63px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 16px;
+    background-color: red;
+    border-radius: 9px;
+    text-align: center;
+    margin: 10px auto;
+}
+.pinpai img{
+    display: block;
+    margin: 10px auto;
+    vertical-align: middle;
+}
+.jd{
+    padding-top: 13px;
+    overflow: hidden;
+    background-color: rgb(245,245,245);
+}
+.jd_tittle{
+    padding-top: 13px;
+    overflow: hidden;
+    background-color: rgb(245,245,245);
+    -background: url(../images/bg233331.jpg) no-repeat center;
+    
+}
+.jd .row .jd_past{
+    float: left;
+    width: 400px;
+    height: 170px;
+    margin-right: 13px;
+    margin-bottom: 13px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+}
+.jd_1{
+    background-color: rgb(201,224,209);
+}
+.jd_2{
+    background-color: rgb(236,235,217);
+}
+.jd .row .jd_3{
+    background-color: rgb(232,210,189);
+    margin-right: 0px;
+}
+.jd_4{
+    background-color: rgb(201,184,174);
+}
+.jd_5{
+    background-color: rgb(174,170,178);
+}
+.jd .row .jd_6{
+    background-color: rgb(195,217,223);
+    margin-right: 0px;
+}
+/*.row{*/
+/*overflow: hidden;*/
+/*}*/
+.jd_left{
+    width: 36%;
+    height: 100%;
+    float: left;
+
+}
+
+.entry_info {
+    padding-top: 45px;
+    width: 100px;
+    /*height: 170px;*/
+    font-size: 14px;
+    margin: 0 auto;
+}
+.entry_info_tit {
+    overflow: hidden;
+    height: 40px;
+    border-top: 1px solid #ecead9;
+    border-bottom: 1px solid #ecead9;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    font-family: fzzhengheis-el-gbregular;
+    font-weight: 400;
+    font-size: 22px;
+    color: white;
+}
+.entry_info_desc {
+    overflow: hidden;
+    margin-top: 8px;
+    height: 32px;
+    line-height: 16px;
+    color: rgba(251, 251, 251, 0.69);
+    text-align: center;
+}
+.entry_img {
+    position: absolute;
+    right: 0px;
+    top:0px;
+    transition: transform .3s ease-in,-webkit-transform .3s ease-in,-moz-transform .3s ease-in;
+    transition: all .3s ease-in;
+}
+.entry_img:hover{
+    /*transform: translate();*/
+    right: 10px;
+}
+
+.jd_l1{
+    background-color: #59b07d;
+}
+.jd_l2{
+    background-color: rgb(219,207,110);
+}
+.jd_l3{
+    background-color: rgb(215,142,40);
+}
+.jd_l4{
+    background-color: rgb(134,99,80);
+}
+.jd_l5{
+    background-color: rgb(92,85,102);
+}
+.jd_l6{
+    background-color: rgb(73,140,148);
+}
+.tittle_line{
+    overflow: hidden;
+    padding: 0 0 10px;
+    height: 35px;
+    background: url("images/tittle_line.png") repeat-x 0 18px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 45px;
+
+}
+.tittle_line h3{
+    display: inline;
+    padding: 0 50px;
+    -background-color: #f6f6f6;
+    font-weight: 200;
+    font-size: 26px;
+    color: red;
+    font-family: fzzhengheis-el-gbregular;
+}
+.row {
+    width: 1226px;
+    margin: 0 auto;
+    
+    -background-color: white;
+    line-height: 45px;
+}
+.row1{
+	width: 1226px;
+    margin: 0 auto;
+    background: url(../images/bg23333.png) no-repeat center;
+    -background-color: white;
+    line-height: 45px;
+}
+.huodong{
+    float: left;
+    margin-right: 7px;
+}
+.margin_right{
+    margin-right: 0px;
+}
+.more .daojishi{
+    /*float: left;*/
+    width: 35px;
+    height: 37px;
+    background-color: #ccc;
+    color: #f90013;
+    font-size: 28px;
+    font-family: Arial;
+    font-weight: 700;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 37px;
+}
+.red-border{
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    border: 2px solid red;
+    width: 100%;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height:39px ;
+    font-size:14px ;
+    padding-left: 10px;
+}
+.red-border .miaosha-text{
+    color: red;
+    font-size: 16px;
+    text-decoration: none;
+}
+.red-border span{
+    font-size: 12px;
+    color: #999;
+    text-decoration: line-through;
+}
+.red-border div{
+    float: right;
+    padding:1px 10px;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+/*slide侧边栏*/
+.slide{
+	left: 42.5px;
+    bottom: 80px;
+    display: none;
+    position: fixed;
+    
+	width: 35px;
+    background: gray;
+}
+.lift_item:hover, .lift_item_on{
+    position: relative;
+    border-bottom: 1px solid #d70b1c;
+    margin-bottom: -1px;
+    border-color: #d70b1c;
+    background-color: #d70b1c;
+}
+.lift_btn {
+    padding: 7px 5px;
+    overflow: hidden;
+    display: block;
+    width: 24px;
+    padding: 10px 5px;
+    line-height: 14px;
+    text-align: center;
+    color: #fefefe;
+    -webkit-transition: color .1s;
+    -moz-transition: color .1s;
+    transition: color .1s;
+}
+.lift_item{border-top: 1px solid #ddd;}
+
+
+/*覆盖*/
+.nav-footer {
+    padding: 39px 0;}
+.ch_classify{margin: 0;}
+.code1{    width: 100px;}
+.code1 h4{text-align: center;    line-height: 16px;}
+.code1 img{width: 100%;}
+.nav {
+        width: initial;}
+
